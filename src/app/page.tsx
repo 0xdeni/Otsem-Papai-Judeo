@@ -11,7 +11,7 @@ import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-primary/30 selection:text-white">
+    <div className="relative flex min-h-screen flex-col selection:bg-sky-500/30 selection:text-white">
       <Header />
       <main className="flex-grow">
         <HeroSection />
