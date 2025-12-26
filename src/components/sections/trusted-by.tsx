@@ -1,59 +1,55 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 
 const TrustedBy = () => {
   const logos = [
-    'Mercado Bitcoin',
-    'Binance',
-    'Coinbase',
-    'FTX',
-    'Kraken'
+    "Mercado Bitcoin",
+    "Binance",
+    "Coinbase",
+    "Kraken",
+    "Bitfinex"
   ];
 
   return (
-    <section 
-      className="relative z-10 border-y border-white/5 bg-white/[0.02] py-16"
-      style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.02)',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
-      }}
-    >
-      <div className="mx-auto max-w-7xl px-6">
-        <p 
-          className="mb-8 text-center text-sm font-medium uppercase tracking-[0.05em] text-white/40"
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '14px',
-            color: 'rgba(255, 255, 255, 0.4)',
-            letterSpacing: '0.05em'
-          }}
+    <section className="relative z-10 py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/30"
         >
           Confiado por empresas e traders
-        </p>
+        </motion.p>
         
-        <div 
-          className="flex flex-wrap items-center justify-center gap-12 opacity-50"
-          style={{
-            opacity: 0.5
-          }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16"
         >
-          {logos.map((logo) => (
-            <div 
+          {logos.map((logo, index) => (
+            <motion.div
               key={logo}
-              className="text-lg font-bold text-white/60 transition-colors hover:text-white/90"
-              style={{
-                fontSize: '18px',
-                fontWeight: 700,
-                color: 'rgba(255, 255, 255, 0.6)',
-                fontFamily: 'var(--font-sans)',
-                cursor: 'default'
-              }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, opacity: 0.9 }}
+              className="text-base sm:text-lg font-semibold text-white/20 transition-all duration-300 hover:text-white/40 cursor-default"
             >
               {logo}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
+      
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
     </section>
   );
 };
