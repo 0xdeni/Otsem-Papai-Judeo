@@ -1,83 +1,71 @@
-import React from 'react';
-import { TrendingUp, Globe, Clock, ShieldCheck } from 'lucide-react';
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { TrendingUp, Globe, Clock, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
-    icon: <TrendingUp className="h-6 w-6" />,
+    icon: TrendingUp,
     value: "US$ 415B",
-    label: "Mercado OTC global em 2024"
+    label: "Mercado OTC global em 2024",
+    color: "from-sky-500/20 to-cyan-500/10",
+    iconColor: "text-sky-400",
+    borderColor: "border-sky-500/20"
   },
   {
-    icon: <Globe className="h-6 w-6" />,
+    icon: Globe,
     value: "9.1%",
-    label: "Volume LATAM do mercado global"
+    label: "Volume LATAM do mercado global",
+    color: "from-indigo-500/20 to-purple-500/10",
+    iconColor: "text-indigo-400",
+    borderColor: "border-indigo-500/20"
   },
   {
-    icon: <Clock className="h-6 w-6" />,
+    icon: Clock,
     value: "10-30min",
-    label: "Tempo de liquidação"
+    label: "Tempo de liquidação",
+    color: "from-amber-500/20 to-orange-500/10",
+    iconColor: "text-amber-400",
+    borderColor: "border-amber-500/20"
   },
   {
-    icon: <ShieldCheck className="h-6 w-6" />,
+    icon: ShieldCheck,
     value: "0% IOF",
-    label: "Sem imposto sobre operações"
+    label: "Sem imposto sobre operações",
+    color: "from-emerald-500/20 to-teal-500/10",
+    iconColor: "text-emerald-400",
+    borderColor: "border-emerald-500/20"
   }
 ];
 
 const StatsGrid = () => {
   return (
-    <section className="relative z-10 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative z-10 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/30 hover:bg-white/10"
-              style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                backdropFilter: 'blur(8px)',
-                borderRadius: '1rem'
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4 }}
+              className="group glass-card card-shine rounded-2xl p-5 sm:p-6"
             >
-              {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              
-              <div className="relative">
-                {/* Icon Container */}
-                <div 
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400 transition-colors duration-300 group-hover:bg-violet-500/20"
-                  style={{
-                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
-                    color: '#a78bfa'
-                  }}
-                >
-                  {stat.icon}
-                </div>
-                
-                {/* Stat Value */}
-                <div 
-                  className="text-3xl font-bold tracking-tight text-white transition-transform duration-300 group-hover:translate-x-1"
-                  style={{
-                    fontSize: '1.875rem',
-                    fontWeight: 700,
-                    lineHeight: '2.25rem'
-                  }}
-                >
-                  {stat.value}
-                </div>
-                
-                {/* Stat Label */}
-                <div 
-                  className="mt-1 text-sm text-white/50"
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.5)',
-                    fontSize: '0.875rem'
-                  }}
-                >
-                  {stat.label}
-                </div>
+              <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${stat.color} border ${stat.borderColor}`}>
+                <stat.icon className={`h-5 w-5 ${stat.iconColor}`} />
               </div>
-            </div>
+              
+              <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                {stat.value}
+              </div>
+              
+              <div className="mt-1.5 text-xs sm:text-sm text-white/40 leading-relaxed">
+                {stat.label}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
