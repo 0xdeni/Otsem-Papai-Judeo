@@ -44,73 +44,74 @@ const Header = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6"
       >
-        <motion.div
-          layout
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className={`mx-auto flex items-center justify-between transition-all duration-500 glass-nav rounded-2xl ${
-            scrolled
-              ? "px-5 py-3 max-w-4xl"
-              : "px-6 py-4 max-w-7xl border-white/40"
-          }`}
-        >
-          <motion.a 
-            className="flex items-center gap-2.5 group" 
-            href="/"
-            onClick={handleNavClick}
-            whileTap={{ scale: 0.96 }}
+          <motion.div
+            layout
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className={`mx-auto flex items-center justify-between transition-all duration-700 liquid-glass rounded-3xl ${
+              scrolled
+                ? "px-6 py-3 max-w-4xl mt-4"
+                : "px-8 py-5 max-w-7xl mt-2 border-white/80"
+            }`}
           >
-            <motion.div 
-              className="relative h-9 w-9 flex items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/20"
-              whileHover={{ rotate: 5 }}
+            <motion.a 
+              className="flex items-center gap-3 group" 
+              href="/"
+              onClick={handleNavClick}
+              whileTap={{ scale: 0.96 }}
             >
-                <Zap className="w-5 h-5 text-white" />
-            </motion.div>
-            <span className="text-xl font-extrabold tracking-tight flex items-center">
-              <span className="text-primary">Otsem</span>
-              <span className="text-foreground">Pay</span>
-            </span>
-          </motion.a>
+              <motion.div 
+                className="relative h-10 w-10 flex items-center justify-center rounded-2xl bg-primary shadow-2xl shadow-primary/30 overflow-hidden"
+                whileHover={{ rotate: 8, scale: 1.1 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                <Zap className="w-6 h-6 text-white relative z-10" />
+              </motion.div>
+              <span className="text-2xl font-black tracking-tighter flex items-center">
+                <span className="text-primary">Otsem</span>
+                <span className="text-foreground">Pay</span>
+              </span>
+            </motion.a>
 
-          <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
+            <nav className="hidden items-center gap-2 md:flex">
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={handleNavClick}
+                  className="relative px-5 py-2.5 text-sm font-black text-foreground/60 transition-all hover:text-primary rounded-2xl hover:bg-primary/5"
+                  whileHover={{ scale: 1.05, y: -1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </nav>
+
+            <div className="hidden items-center gap-6 md:flex">
               <motion.a
-                key={link.href}
-                href={link.href}
+                href="/login"
                 onClick={handleNavClick}
-                className="relative px-4 py-2 text-sm font-bold text-foreground/70 transition-all hover:text-primary rounded-xl hover:bg-primary/5"
+                className="text-sm font-black text-foreground/60 hover:text-primary transition-colors px-2"
+                whileHover={{ scale: 1.05, x: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Entrar
+              </motion.a>
+              <motion.a
+                href="/register"
+                onClick={handleButtonClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {link.label}
+                <button
+                  type="button"
+                  className="btn-premium py-3 px-8 rounded-2xl text-sm shadow-2xl shadow-primary/40"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Criar conta
+                </button>
               </motion.a>
-            ))}
-          </nav>
-
-          <div className="hidden items-center gap-4 md:flex">
-            <motion.a
-              href="/login"
-              onClick={handleNavClick}
-              className="text-sm font-bold text-foreground/70 hover:text-primary transition-colors px-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Entrar
-            </motion.a>
-            <motion.a
-              href="/register"
-              onClick={handleButtonClick}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <button
-                type="button"
-                className="btn-premium py-2.5 px-6 rounded-xl text-sm"
-              >
-                <Sparkles className="w-4 h-4" />
-                Criar conta
-              </button>
-            </motion.a>
-          </div>
+            </div>
 
           <motion.button 
             className="flex items-center justify-center w-10 h-10 rounded-xl glass-nav md:hidden"
