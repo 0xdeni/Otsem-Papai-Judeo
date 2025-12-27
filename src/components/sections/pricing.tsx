@@ -46,23 +46,25 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="precos" className="relative z-10 py-14 sm:py-20">
+    <section id="precos" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 sm:mb-12 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <div className="section-badge mx-auto mb-5">Preços</div>
-          <h2 className="font-section">Taxas transparentes</h2>
-          <p className="mx-auto mt-3 max-w-md text-[14px] sm:text-[15px] text-white/45">
-            Sem taxas escondidas. Você sabe exatamente quanto vai pagar.
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
+            Preços Claros
+          </div>
+          <h2 className="text-[32px] sm:text-5xl font-bold tracking-tight text-foreground">Taxas transparentes</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-foreground/60 font-medium leading-relaxed">
+            Sem taxas escondidas. Você sabe exatamente quanto vai pagar em cada operação.
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
+        <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -70,58 +72,58 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -3 }}
-              className={`relative glass-card rounded-2xl p-5 sm:p-6 ${
+              whileHover={{ y: -8 }}
+              className={`relative glass-card rounded-[2.5rem] p-8 ${
                 plan.popular 
-                  ? "border-sky-500/15 hover:border-sky-500/20" 
-                  : "hover:border-white/10"
+                  ? "bg-primary/[0.02] border-primary/20" 
+                  : "border-white/40"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-2.5 right-5">
-                  <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded-full">
-                    Popular
+                <div className="absolute -top-3 right-8">
+                  <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 rounded-full">
+                    Mais Popular
                   </span>
                 </div>
               )}
 
-              <div className="mb-5">
-                <div className="flex items-center gap-2.5 mb-1">
-                  <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${plan.popular ? 'bg-sky-500/10 border border-sky-500/15' : 'bg-white/5 border border-white/8'}`}>
-                    <plan.icon className={`h-4 w-4 ${plan.popular ? 'text-sky-400' : 'text-white/60'}`} strokeWidth={2} />
+              <div className="mb-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${plan.popular ? 'bg-primary/20 text-primary' : 'bg-primary/10 text-primary/60'}`}>
+                    <plan.icon className="h-5 w-5" strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-[15px] sm:text-base font-semibold text-white">{plan.name}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
                 </div>
-                <p className="text-[12px] sm:text-[13px] text-white/40">{plan.description}</p>
+                <p className="text-[14px] text-foreground/40 font-medium">{plan.description}</p>
               </div>
 
-              <div className="mb-6">
-                <span className="text-[12px] font-medium text-white/45">{plan.priceLabel}</span>
-                <div className="flex items-baseline gap-1 mt-0.5">
-                  <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">{plan.price}</span>
-                  <span className="text-[12px] text-white/35">{plan.priceSuffix}</span>
+              <div className="mb-8">
+                <span className="text-[12px] font-bold uppercase tracking-widest text-foreground/30">{plan.priceLabel}</span>
+                <div className="flex items-baseline gap-1 mt-1">
+                  <span className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">{plan.price}</span>
+                  <span className="text-[13px] text-foreground/40 font-medium">{plan.priceSuffix}</span>
                 </div>
               </div>
 
-              <ul className="mb-6 space-y-2.5">
+              <ul className="mb-8 space-y-3.5">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
-                    <div className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/15">
-                      <Check className="h-2.5 w-2.5 text-emerald-400" strokeWidth={3} />
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                      <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
                     </div>
-                    <span className="text-[13px] text-white/55">{feature}</span>
+                    <span className="text-[14px] text-foreground/50 font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <motion.button
                 onClick={handleButtonClick}
-                whileHover={{ scale: 1.01 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full rounded-xl py-3 text-[13px] font-semibold transition-all ${
+                className={`w-full rounded-2xl py-4 text-[15px] font-bold transition-all shadow-lg ${
                   plan.popular
-                    ? "btn-primary"
-                    : "glass-button text-white"
+                    ? "btn-primary shadow-primary/25"
+                    : "liquid-glass text-foreground"
                 }`}
               >
                 {plan.cta}
@@ -130,8 +132,6 @@ const Pricing = () => {
           ))}
         </div>
       </div>
-      
-      <div className="absolute left-1/2 top-1/2 -z-10 h-[400px] w-[550px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/[0.04] blur-[100px] rounded-full pointer-events-none" />
     </section>
   );
 };
