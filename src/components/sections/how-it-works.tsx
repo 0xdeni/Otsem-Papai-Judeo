@@ -38,60 +38,55 @@ const HowItWorks = () => {
   return (
     <section id="como-funciona" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 sm:mb-16 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
-            Processo Simples
-          </div>
-          <h2 className="text-[32px] sm:text-5xl font-bold tracking-tight text-foreground">
-            Como funciona
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-foreground/60 font-medium leading-relaxed">
-            Em apenas 3 passos, você converte seu dinheiro de forma segura e instantânea com total transparência.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-20 text-center"
+          >
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
+              Fluxo Inteligente
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tightest text-foreground">
+              Como funciona.
+            </h2>
+          </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8 }}
-              className="group relative glass-card rounded-[2.5rem] p-8"
-            >
-              <span 
-                className="absolute -right-2 -top-2 text-6xl sm:text-8xl font-bold text-foreground/[0.03] select-none pointer-events-none"
-                aria-hidden="true"
+          <div className="grid gap-8 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative liquid-glass rounded-[3rem] p-12 border border-white/40 shadow-xl shadow-black/5"
               >
-                {step.id}
-              </span>
+                <span 
+                  className="absolute right-8 top-8 text-4xl font-black text-primary/10 select-none pointer-events-none"
+                  aria-hidden="true"
+                >
+                  {step.id}
+                </span>
 
-              <div className="relative z-10">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 transition-transform duration-500 group-hover:scale-110">
-                  <step.icon className="h-7 w-7 text-primary" strokeWidth={2.5} />
+                <div className="relative z-10 space-y-8">
+                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-primary/10 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}>
+                    <step.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl font-black tracking-tighter text-foreground mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-[15px] text-muted-foreground leading-relaxed font-medium">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-[15px] text-foreground/50 leading-relaxed font-medium">
-                  {step.description}
-                </p>
-              </div>
-
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-primary/20" />
-              )}
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
       </div>
     </section>
   );
