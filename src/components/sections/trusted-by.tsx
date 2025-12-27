@@ -46,7 +46,7 @@ const TrustedBy = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/25"
+          className="mb-10 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-black/40"
         >
           Confiado por empresas e traders
         </motion.p>
@@ -67,7 +67,7 @@ const TrustedBy = () => {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="relative group flex items-center justify-center"
             >
-              <div className="relative opacity-[0.25] transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
+              <div className="relative opacity-[0.4] transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
                 <Image
                   src={logo.src}
                   alt={logo.name}
@@ -81,8 +81,8 @@ const TrustedBy = () => {
         </motion.div>
       </div>
       
-      <div className="absolute inset-x-0 top-0 divider-glow" />
-      <div className="absolute inset-x-0 bottom-0 divider-glow" />
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-black/5 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-black/5 to-transparent" />
     </section>
   );
 };
