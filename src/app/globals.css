@@ -97,6 +97,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
   }
 
   body {
@@ -109,6 +110,9 @@
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   body::before {
