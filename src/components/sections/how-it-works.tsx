@@ -36,62 +36,64 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="como-funciona" className="relative z-10 py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <section id="como-funciona" className="relative z-10 py-20 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
+          className="mb-16 lg:mb-24 text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-8">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            Fluxo Inteligente
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tightest text-foreground leading-[0.9]">
+            Como funciona <br />
+            <span className="text-primary/30 text-3xl md:text-5xl lg:text-6xl">o ecossistema.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {steps.map((step, index) => (
             <motion.div
+              key={step.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
-              className="mb-20 text-center"
+              transition={{ 
+                type: "spring", 
+                stiffness: 120, 
+                damping: 25, 
+                delay: index * 0.1 
+              }}
+              className="group relative rich-glass rounded-[2.5rem] p-8 sm:p-10 border border-white/40 shadow-xl shadow-black/5"
             >
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
-                Fluxo Inteligente
-              </div>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tightest text-foreground leading-tight">
-                Como funciona.
-              </h2>
-            </motion.div>
-  
-            <div className="grid gap-8 md:grid-cols-3">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 120, 
-                    damping: 20, 
-                    delay: index * 0.1 
-                  }}
-                  className="group relative liquid-glass rounded-[3rem] p-10 sm:p-12 border border-white/40 shadow-xl shadow-black/5"
-                >
-                <span 
-                  className="absolute right-8 top-8 text-4xl font-black text-primary/10 select-none pointer-events-none"
-                  aria-hidden="true"
-                >
-                  {step.id}
-                </span>
+              <span 
+                className="absolute right-8 top-8 text-4xl font-black text-primary/10 select-none pointer-events-none group-hover:text-primary/20 transition-colors duration-500"
+                aria-hidden="true"
+              >
+                {step.id}
+              </span>
 
-                <div className="relative z-10 space-y-8">
-                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-primary/10 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}>
-                    <step.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-black tracking-tighter text-foreground mb-4">
-                      {step.title}
-                    </h3>
-                    <p className="text-[15px] text-muted-foreground leading-relaxed font-medium">
-                      {step.description}
-                    </p>
-                  </div>
+              <div className="relative z-10 space-y-8">
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-white border border-primary/10 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                  <step.icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                
+                <div>
+                  <h3 className="text-xl font-black tracking-tight text-foreground mb-4 transition-colors group-hover:text-primary">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
