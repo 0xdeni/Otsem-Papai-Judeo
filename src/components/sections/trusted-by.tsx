@@ -39,16 +39,16 @@ const TrustedBy = () => {
   ];
 
   return (
-    <section className="relative z-10 py-14 sm:py-16">
+    <section className="relative z-10 py-12 sm:py-14 bg-white/30 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-black/40"
+          className="mb-8 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30"
         >
-          Confiado por empresas e traders
+          Confiado por empresas e traders globais
         </motion.p>
         
         <motion.div
@@ -56,33 +56,30 @@ const TrustedBy = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 sm:gap-x-14 sm:gap-y-12 lg:gap-x-20"
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12 sm:gap-y-10 lg:gap-x-16"
         >
           {logos.map((logo, index) => (
             <motion.div
               key={logo.name}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="relative group flex items-center justify-center"
             >
-              <div className="relative opacity-[0.4] transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
+              <div className="relative opacity-40 grayscale hover:grayscale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={logo.width}
                   height={logo.height}
-                  className="h-7 w-auto object-contain sm:h-8"
+                  className="h-6 w-auto object-contain sm:h-7"
                 />
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
-      
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-black/5 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-black/5 to-transparent" />
     </section>
   );
 };
