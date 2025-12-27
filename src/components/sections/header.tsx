@@ -53,24 +53,27 @@ const Header = () => {
                 : "px-8 py-5 max-w-7xl mt-2 border-white/80"
             }`}
           >
-            <motion.a 
-              className="flex items-center gap-3 group" 
-              href="/"
-              onClick={handleNavClick}
-              whileTap={{ scale: 0.96 }}
-            >
-              <motion.div 
-                className="relative h-10 w-10 flex items-center justify-center rounded-2xl bg-primary shadow-2xl shadow-primary/30 overflow-hidden"
-                whileHover={{ rotate: 8, scale: 1.1 }}
+              <motion.a 
+                className="flex items-center gap-3 group" 
+                href="/"
+                onClick={handleNavClick}
+                whileTap={{ scale: 0.96 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                <Zap className="w-6 h-6 text-white relative z-10" />
-              </motion.div>
-              <span className="text-2xl font-black tracking-tighter flex items-center">
-                <span className="text-primary">Otsem</span>
-                <span className="text-foreground">Pay</span>
-              </span>
-            </motion.a>
+                <motion.div 
+                  className="relative h-10 w-10 flex items-center justify-center rounded-2xl bg-white shadow-2xl shadow-primary/20 overflow-hidden border border-primary/10"
+                  whileHover={{ rotate: 8, scale: 1.1 }}
+                >
+                  <img 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
+                    alt="OtsemPay Logo" 
+                    className="w-7 h-7 object-contain relative z-10"
+                  />
+                </motion.div>
+                <span className="text-2xl font-black tracking-tighter flex items-center">
+                  <span className="text-primary">Otsem</span>
+                  <span className="text-foreground">Pay</span>
+                </span>
+              </motion.a>
 
             <nav className="hidden items-center gap-2 md:flex">
               {navLinks.map((link) => (
