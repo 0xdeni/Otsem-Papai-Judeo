@@ -3,78 +3,16 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight, Sparkles } from "lucide-react";
-import haptic from "@/lib/haptics";
+import { Menu, X, ChevronRight, Sparkles, Zap } from "lucide-react";
 
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = useCallback(() => {
-    haptic.light();
-  }, []);
-
-  const handleButtonClick = useCallback(() => {
-    haptic.medium();
-  }, []);
-
-  const toggleMenu = useCallback(() => {
-    haptic.impact();
-    setMobileMenuOpen((prev) => !prev);
-  }, []);
-
-  const navLinks = [
-    { href: "#como-funciona", label: "Como funciona" },
-    { href: "#recursos", label: "Recursos" },
-    { href: "#precos", label: "Preços" },
-  ];
-
-  return (
-    <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 safe-top"
-      >
-        <div className="mx-auto px-4 sm:px-6 pt-3 sm:pt-4">
-          <motion.div
-            layout
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`mx-auto flex items-center justify-between transition-all duration-400 ${
-              scrolled
-                ? "glass-nav rounded-2xl px-4 sm:px-5 py-2.5 max-w-3xl"
-                : "bg-transparent px-1 py-3 max-w-6xl"
-            }`}
-          >
-            <motion.a 
-              className="flex items-center gap-2 group" 
-              href="/"
-              onClick={handleNavClick}
-              whileTap={{ scale: 0.97 }}
-            >
-              <motion.div 
-                className="relative h-8 w-8 sm:h-9 sm:w-9 overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                  <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814822313.png?width=8000&height=8000&resize=contain"
-                    alt="OtsemPay"
-                    width={36}
-                    height={36}
-                    className="object-contain scale-110"
-                    priority
-                  />
-              </motion.div>
+// ... around line 64
+                <motion.div 
+                  className="relative h-8 w-8 sm:h-9 sm:w-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-white/10"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                    <Zap className="w-5 h-5 text-sky-400" />
+                </motion.div>
               <span className="text-base sm:text-lg font-semibold tracking-tight flex items-center">
                 <span className="text-gradient-primary">Otsem</span>
                 <span className="text-white/90">Pay</span>
