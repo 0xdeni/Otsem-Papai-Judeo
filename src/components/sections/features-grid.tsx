@@ -77,61 +77,71 @@ const FeaturesGrid = () => {
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <div className="mb-24 sm:mb-32">
             <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
-                  Recursos Premium
-                </div>
-                <h2 className="text-5xl md:text-7xl font-black tracking-tightest text-foreground leading-[1.1]">
-                  Ecossistema <br />
-                  <span className="text-primary/40">completo.</span>
-                </h2>
-                <p className="mt-8 text-lg text-muted-foreground leading-relaxed font-semibold max-w-md">
-                  Ferramentas de elite para gerenciar suas conversões com total privacidade e velocidade.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="grid gap-6 grid-cols-2"
-              >
-                {secondaryFeatures.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.08 }}
-                    className="liquid-glass rounded-[2rem] p-6 border-white/40 group hover:-translate-y-1 transition-transform duration-300"
-                  >
-                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 border border-primary/10 transition-all duration-500 group-hover:scale-110">
-                      <feature.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="font-black text-foreground text-[15px] tracking-tight">{feature.title}</h3>
-                    <p className="mt-2 text-[12px] text-muted-foreground font-semibold leading-snug">{feature.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                >
+                  <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
+                    Recursos Premium
+                  </div>
+                  <h2 className="text-4xl md:text-6xl font-black tracking-tightest text-foreground leading-[1.1]">
+                    Ecossistema <br />
+                    <span className="text-primary/40">completo.</span>
+                  </h2>
+                  <p className="mt-8 text-lg text-muted-foreground leading-relaxed font-semibold max-w-md">
+                    Ferramentas de elite para gerenciar suas conversões com total privacidade e velocidade.
+                  </p>
+                </motion.div>
+  
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
+                  className="grid gap-6 grid-cols-2"
+                >
+                  {secondaryFeatures.map((feature, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 120,
+                        damping: 20,
+                        delay: index * 0.05 
+                      }}
+                      className="liquid-glass rounded-[2rem] p-6 border-white/40 group hover:-translate-y-1 transition-transform duration-300"
+                    >
+                      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 border border-primary/10 transition-all duration-500 group-hover:scale-110">
+                        <feature.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="font-black text-foreground text-[15px] tracking-tight">{feature.title}</h3>
+                      <p className="mt-2 text-[12px] text-muted-foreground font-semibold leading-snug">{feature.description}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
             </div>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {mainFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="liquid-glass p-10 rounded-[3rem] border-white/40 group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
-              >
+  
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {mainFeatures.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20,
+                    delay: index * 0.1
+                  }}
+                  className="liquid-glass p-10 rounded-[3rem] border-white/40 group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+                >
                 <div className={`mb-10 flex h-16 w-16 items-center justify-center rounded-2xl ${feature.color} border border-primary/10 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}>
                   <feature.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
                 </div>
