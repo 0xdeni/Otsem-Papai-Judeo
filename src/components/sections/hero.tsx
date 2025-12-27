@@ -9,9 +9,10 @@ import {
   Lock, 
   Wallet, 
   ArrowDownLeft, 
-  ArrowUpRight,
   RefreshCw,
-  ChevronDown 
+  ChevronDown,
+  Globe,
+  Star
 } from "lucide-react";
 import haptic from "@/lib/haptics";
 
@@ -25,59 +26,68 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.15,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   return (
-    <section className="relative z-10 min-h-[100dvh] flex flex-col pt-12">
-      <div className="flex-1 flex flex-col items-center justify-center px-5 pt-20 pb-6 sm:px-6 sm:pt-24">
+    <section className="relative z-10 min-h-[100dvh] flex flex-col pt-20 overflow-hidden">
+      {/* Liquid Background Elements */}
+      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-float" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[100px] rounded-full animate-float" style={{ animationDelay: '-3s' }} />
+
+      <div className="container mx-auto px-6 flex-grow flex flex-col lg:flex-row items-center gap-16 py-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full max-w-4xl mx-auto text-center"
+          className="w-full lg:w-1/2 text-left"
         >
-          <motion.div variants={itemVariants} className="mb-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider">
-              <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Mais de R$ 50M transacionados
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/60 shadow-sm text-primary font-bold text-xs uppercase tracking-widest">
+              <Star className="w-3.5 h-3.5 fill-primary" />
+              <span>Plataforma #1 em Liquidez Digital</span>
             </div>
           </motion.div>
 
           <motion.h1 
             variants={itemVariants}
-            className="text-[40px] sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[0.95] mb-6"
+            className="text-5xl md:text-7xl xl:text-8xl font-black tracking-tight text-foreground leading-[1] mb-8"
           >
-            Mova seu capital <br />
-            <span className="text-primary italic">sem fronteiras</span>
+            Sua ponte <br />
+            <span className="text-primary relative inline-block">
+              líquida
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-primary/20" />
+              </svg>
+            </span> <br />
+            global.
           </motion.h1>
 
           <motion.p 
             variants={itemVariants}
-            className="mx-auto max-w-xl text-base sm:text-lg text-foreground/60 font-medium leading-relaxed"
+            className="max-w-xl text-lg md:text-xl text-muted-foreground font-medium leading-relaxed mb-10"
           >
-            Operações OTC com transparência total. Converta BRL para USDT <br className="hidden sm:block" />
-            em minutos com as melhores taxas do mercado.
+            Experimente a liberdade financeira com o OtsemPay. Converta BRL em USDT de forma instantânea, segura e com as menores taxas do mercado global.
           </motion.p>
 
           <motion.div 
             variants={itemVariants}
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            className="flex flex-col sm:flex-row items-center gap-5"
           >
             <motion.a 
               href="/register" 
@@ -86,9 +96,9 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <button className="btn-primary w-full sm:w-auto h-14 px-8 rounded-2xl text-[15px] font-bold flex items-center justify-center gap-2 shadow-xl shadow-primary/25">
+              <button className="btn-premium w-full sm:w-auto group">
                 Começar agora
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
             </motion.a>
             <motion.a 
@@ -98,122 +108,152 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <button className="liquid-glass w-full sm:w-auto h-14 px-8 rounded-2xl text-[15px] font-bold flex items-center justify-center gap-2 text-foreground">
-                Ver como funciona
+              <button className="btn-premium-outline w-full sm:w-auto">
+                <Globe className="w-5 h-5 text-primary" />
+                Ver Ecossistema
               </button>
             </motion.a>
           </motion.div>
 
           <motion.div 
             variants={itemVariants}
-            className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 opacity-60"
+            className="mt-14 flex items-center gap-8 border-t border-black/[0.05] pt-10"
           >
-            {[
-              { icon: ShieldCheck, label: "Verificação KYC", color: "text-foreground" },
-              { icon: Zap, label: "Liquidação Instantânea", color: "text-foreground" },
-              { icon: Lock, label: "Segurança Bancária", color: "text-foreground" },
-            ].map((item, index) => (
-              <div key={index} className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest text-foreground">
-                <item.icon className="h-4 w-4 text-primary" strokeWidth={2.5} />
-                <span>{item.label}</span>
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden shadow-sm">
+                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="User" />
+                </div>
+              ))}
+              <div className="w-10 h-10 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] font-bold text-white shadow-sm">
+                +2k
               </div>
-            ))}
+            </div>
+            <div className="text-sm font-semibold text-muted-foreground">
+              <span className="text-foreground font-bold">2.400+</span> investidores ativos <br /> 
+              confiam no OtsemPay
+            </div>
           </motion.div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-16 sm:mt-20 w-full max-w-[340px] mx-auto"
+          initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-1/2 relative perspective-1000"
         >
-          {/* Decorative background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10">
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
-          </div>
-          
+          {/* Floating cards around the main mockup */}
           <motion.div 
-            className="liquid-glass rounded-[3rem] p-3 shadow-2xl"
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.5 }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -right-4 z-20 liquid-glass p-5 rounded-3xl shadow-2xl hidden md:block"
           >
-            <div className="overflow-hidden rounded-[2.5rem] bg-white border border-black/5 aspect-[9/18.5] relative">
-              {/* iPhone style notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-b-2xl z-20" />
-              
-              <div className="p-6 pt-12 space-y-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-[11px] font-bold text-foreground/30 uppercase tracking-widest">Seu saldo</p>
-                    <p className="text-3xl font-bold tracking-tight text-foreground mt-1">R$ 12.540</p>
-                  </div>
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                    <Wallet className="h-5 w-5" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="liquid-glass p-4 rounded-2xl">
-                    <p className="text-[10px] font-bold text-foreground/30 uppercase">BRL</p>
-                    <p className="text-lg font-bold text-foreground mt-0.5">R$ 5.200</p>
-                  </div>
-                  <div className="liquid-glass p-4 rounded-2xl">
-                    <p className="text-[10px] font-bold text-foreground/30 uppercase">USDT</p>
-                    <p className="text-lg font-bold text-foreground mt-0.5">$ 1.468</p>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold text-foreground/30 uppercase tracking-widest px-1">Atividades</p>
-                  
-                  <div className="p-4 rounded-2xl bg-foreground/[0.02] border border-foreground/[0.05] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
-                        <ArrowDownLeft className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-[13px] font-bold text-foreground">Depósito PIX</p>
-                        <p className="text-[11px] font-medium text-foreground/30">Hoje, 14:32</p>
-                      </div>
-                    </div>
-                    <p className="text-[13px] font-bold text-emerald-600">+R$ 500</p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-foreground/[0.02] border border-foreground/[0.05] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                        <RefreshCw className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-[13px] font-bold text-foreground">BRL → USDT</p>
-                        <p className="text-[11px] font-medium text-foreground/30">Ontem, 18:15</p>
-                      </div>
-                    </div>
-                    <p className="text-[13px] font-bold text-foreground">$100</p>
-                  </div>
-                </div>
-
-                <button className="w-full h-12 btn-primary rounded-xl font-bold text-sm shadow-lg shadow-primary/20">
-                  Transferir agora
-                </button>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                <Zap className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Liquidez</p>
+                <p className="text-xl font-black text-foreground">Instantânea</p>
               </div>
             </div>
           </motion.div>
+
+          <motion.div 
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute -bottom-6 -left-10 z-20 liquid-glass p-6 rounded-3xl shadow-2xl hidden md:block"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Segurança</p>
+                <p className="text-xl font-black text-foreground">Bancária</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="relative mx-auto w-full max-w-[380px]">
+            <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full scale-110 -z-10" />
+            
+            <motion.div 
+              className="liquid-glass rounded-[3.5rem] p-4 shadow-2xl"
+              whileHover={{ rotateY: 5, rotateX: 2 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="overflow-hidden rounded-[2.8rem] bg-white border border-black/5 aspect-[9/18.5] relative">
+                {/* Mockup Screen Content */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-8 w-32 bg-black rounded-b-3xl z-30" />
+                
+                <div className="p-8 pt-16 space-y-8">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Patrimônio Total</p>
+                      <p className="text-4xl font-black tracking-tighter text-foreground mt-2">R$ 48.290</p>
+                    </div>
+                    <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                      <Wallet className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-slate-50 border border-black/[0.03] p-5 rounded-3xl">
+                      <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">BRL Balance</p>
+                      <p className="text-xl font-black text-foreground mt-1">R$ 12.4K</p>
+                    </div>
+                    <div className="bg-slate-50 border border-black/[0.03] p-5 rounded-3xl">
+                      <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">USDT Assets</p>
+                      <p className="text-xl font-black text-foreground mt-1">$ 6.8K</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] px-1">Atividades Recentes</p>
+                    
+                    {[
+                      { title: "Depósito PIX", time: "Hoje, 14:20", amount: "+R$ 2.500", icon: ArrowDownLeft, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+                      { title: "BRL → USDT", time: "Hoje, 09:15", amount: "-$ 420.00", icon: RefreshCw, color: "text-primary", bg: "bg-primary/10" },
+                      { title: "Venda USDT", time: "Ontem, 21:04", amount: "+R$ 1.200", icon: ArrowDownLeft, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+                    ].map((item, idx) => (
+                      <div key={idx} className="p-4 rounded-3xl bg-slate-50/50 border border-black/[0.03] flex items-center justify-between group hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-4">
+                          <div className={`h-10 w-10 rounded-2xl ${item.bg} flex items-center justify-center ${item.color}`}>
+                            <item.icon className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-black text-foreground">{item.title}</p>
+                            <p className="text-[10px] font-medium text-muted-foreground">{item.time}</p>
+                          </div>
+                        </div>
+                        <p className={`text-sm font-black ${item.color}`}>{item.amount}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button className="w-full h-14 btn-premium rounded-2xl font-bold text-base mt-4">
+                    Transferência Global
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
 
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.6 }}
-        className="pb-6 flex flex-col items-center gap-1.5"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="pb-8 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] font-semibold uppercase tracking-widest text-black/20">Role para explorar</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground/40">Descubra Mais</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="h-4 w-4 text-black/20" strokeWidth={2} />
+          <ChevronDown className="w-5 h-5 text-muted-foreground/30" />
         </motion.div>
       </motion.div>
     </section>
