@@ -48,36 +48,41 @@ const Pricing = () => {
   return (
     <section id="precos" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 sm:mb-16 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
-            Preços Claros
-          </div>
-          <h2 className="text-[32px] sm:text-5xl font-bold tracking-tight text-foreground">Taxas transparentes</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-foreground/60 font-medium leading-relaxed">
-            Sem taxas escondidas. Você sabe exatamente quanto vai pagar em cada operação.
-          </p>
-        </motion.div>
-
-        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative premium-card group ${
-                plan.popular 
-                  ? "border-primary/30 shadow-primary/10" 
-                  : ""
-              }`}
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="mb-12 sm:mb-16 text-center"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
+              Preços Claros
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tightest text-foreground">Taxas transparentes</h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-foreground/60 font-medium leading-relaxed">
+              Sem taxas escondidas. Você sabe exatamente quanto vai pagar em cada operação.
+            </p>
+          </motion.div>
+  
+          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            {plans.map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  delay: index * 0.1
+                }}
+                className={`relative premium-card group ${
+                  plan.popular 
+                    ? "border-primary/30 shadow-primary/10" 
+                    : ""
+                }`}
+              >
               {plan.popular && (
                 <div className="absolute -top-4 right-8 z-20">
                   <span className="px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-white bg-primary rounded-full shadow-xl shadow-primary/40">
