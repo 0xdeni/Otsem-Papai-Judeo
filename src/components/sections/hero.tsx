@@ -64,56 +64,63 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl md:text-7xl xl:text-8xl font-black tracking-tight text-foreground leading-[1] mb-8"
-          >
-            Sua ponte <br />
-            <span className="text-primary relative inline-block">
-              líquida
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-primary/20" />
-              </svg>
-            </span> <br />
-            global.
-          </motion.h1>
-
-          <motion.p 
-            variants={itemVariants}
-            className="max-w-xl text-lg md:text-xl text-muted-foreground font-medium leading-relaxed mb-10"
-          >
-            Experimente a liberdade financeira com o OtsemPay. Converta BRL em USDT de forma instantânea, segura e com as menores taxas do mercado global.
-          </motion.p>
-
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center gap-5"
-          >
-            <motion.a 
-              href="/register" 
-              className="w-full sm:w-auto"
-              onClick={handleButtonClick}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <motion.h1 
+              variants={itemVariants}
+              className="text-6xl md:text-8xl xl:text-9xl font-black tracking-tighter text-foreground leading-[0.9] mb-10"
             >
-              <button className="btn-premium w-full sm:w-auto group">
-                Começar agora
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </button>
-            </motion.a>
-            <motion.a 
-              href="#como-funciona" 
-              className="w-full sm:w-auto"
-              onClick={() => haptic.light()}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              Sua ponte <br />
+              <span className="text-primary relative inline-block">
+                líquida
+                <motion.svg 
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, delay: 1 }}
+                  className="absolute -bottom-4 left-0 w-full" 
+                  viewBox="0 0 100 10" 
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-primary/30" />
+                </motion.svg>
+              </span> <br />
+              global.
+            </motion.h1>
+
+            <motion.p 
+              variants={itemVariants}
+              className="max-w-xl text-xl md:text-2xl text-muted-foreground font-semibold leading-relaxed mb-12"
             >
-              <button className="btn-premium-outline w-full sm:w-auto">
-                <Globe className="w-5 h-5 text-primary" />
-                Ver Ecossistema
-              </button>
-            </motion.a>
-          </motion.div>
+              Converta BRL em USDT de forma instantânea, segura e com as menores taxas do mercado global. O futuro dos pagamentos é líquido.
+            </motion.p>
+
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center gap-6"
+            >
+              <motion.a 
+                href="/register" 
+                className="w-full sm:w-auto"
+                onClick={handleButtonClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <button className="btn-premium w-full sm:w-auto group px-10 py-5 text-lg">
+                  Começar agora
+                  <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                </button>
+              </motion.a>
+              <motion.a 
+                href="#como-funciona" 
+                className="w-full sm:w-auto"
+                onClick={() => haptic.light()}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <button className="btn-premium-outline w-full sm:w-auto px-10 py-5 text-lg">
+                  <Globe className="w-6 h-6 text-primary" />
+                  Ecossistema
+                </button>
+              </motion.a>
+            </motion.div>
 
           <motion.div 
             variants={itemVariants}
