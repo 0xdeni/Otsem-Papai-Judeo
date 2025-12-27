@@ -40,13 +40,13 @@ const Footer = () => {
             className="col-span-2 lg:col-span-2"
           >
             <a href="/" className="inline-flex items-center gap-2 mb-4">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/2602d9b6-b573-4932-8200-31165a0c934e-otsem-web-vercel-app/assets/icons/logo-otsempay-4.png"
-                alt="OtsemPay"
-                width={32}
-                height={32}
-                className="h-8 w-8 object-contain"
-              />
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814822313.png?width=8000&height=8000&resize=contain"
+                  alt="OtsemPay"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 object-contain scale-110"
+                />
               <span className="text-base font-semibold tracking-tight">
                 <span className="text-gradient-primary">Otsem</span>
                 <span className="text-white/90">Pay</span>
