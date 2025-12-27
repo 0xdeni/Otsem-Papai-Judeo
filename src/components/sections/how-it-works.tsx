@@ -38,31 +38,36 @@ const HowItWorks = () => {
   return (
     <section id="como-funciona" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-20 text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
-              Fluxo Inteligente
-            </div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tightest text-foreground">
-              Como funciona.
-            </h2>
-          </motion.div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative liquid-glass rounded-[3rem] p-12 border border-white/40 shadow-xl shadow-black/5"
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              className="mb-20 text-center"
+            >
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
+                Fluxo Inteligente
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black tracking-tightest text-foreground leading-tight">
+                Como funciona.
+              </h2>
+            </motion.div>
+  
+            <div className="grid gap-8 md:grid-cols-3">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 120, 
+                    damping: 20, 
+                    delay: index * 0.1 
+                  }}
+                  className="group relative liquid-glass rounded-[3rem] p-10 sm:p-12 border border-white/40 shadow-xl shadow-black/5"
+                >
                 <span 
                   className="absolute right-8 top-8 text-4xl font-black text-primary/10 select-none pointer-events-none"
                   aria-hidden="true"
