@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 import TrustedBy from "@/components/sections/trusted-by";
@@ -11,14 +10,10 @@ import FeaturesGrid from "@/components/sections/features-grid";
 import Pricing from "@/components/sections/pricing";
 import CTABanner from "@/components/sections/cta-banner";
 import Footer from "@/components/sections/footer";
-import { BottomNav } from "@/components/ui/bottom-nav";
-import { Tab } from "@/types";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<Tab>(Tab.WALLET);
-
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-hidden selection:bg-primary/20 selection:text-primary pb-24">
+    <div className="relative flex min-h-screen flex-col overflow-x-hidden selection:bg-primary/20 selection:text-primary">
       {/* Dynamic Background Blobs */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/5 blur-[120px] rounded-full animate-liquid" style={{ animationDuration: '20s' }} />
@@ -38,8 +33,6 @@ export default function Home() {
         <CTABanner />
       </main>
       <Footer />
-      
-      <BottomNav currentTab={activeTab} setTab={setActiveTab} />
     </div>
   );
 }
