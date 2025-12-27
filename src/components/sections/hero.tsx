@@ -155,15 +155,13 @@ const HeroSection = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-10 -right-4 z-20 liquid-glass p-5 rounded-3xl shadow-2xl hidden md:block"
             >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white border border-primary/10 flex items-center justify-center overflow-hidden">
+                <div className="flex items-center gap-4">
                   <img 
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
                     alt="Logo" 
-                    className="w-8 h-8 object-contain"
+                    className="w-10 h-10 object-contain"
                   />
-                </div>
-                <div>
+                  <div>
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Liquidez</p>
                   <p className="text-xl font-black text-foreground">Instantânea</p>
                 </div>
