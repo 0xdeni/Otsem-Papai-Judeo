@@ -22,49 +22,51 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <section className="relative z-10 py-14 sm:py-20">
+    <section className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 sm:mb-12 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <div className="section-badge mx-auto mb-5">Comparativo</div>
-          <h2 className="font-section">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
+            Comparativo Eficiente
+          </div>
+          <h2 className="text-[32px] sm:text-5xl font-bold tracking-tight text-foreground">
             Por que escolher OTC?
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-[14px] sm:text-[15px] text-white/45">
-            Compare o câmbio tradicional com operações via ativos digitais
+          <p className="mx-auto mt-4 max-w-xl text-base text-foreground/60 font-medium">
+            Compare o câmbio tradicional com operações via ativos digitais e veja a economia real.
           </p>
         </motion.div>
 
-        <div className="grid gap-4 lg:grid-cols-2 max-w-4xl mx-auto">
+        <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card rounded-2xl p-5 sm:p-6 border-red-500/10 hover:border-red-500/15"
+            className="glass-card rounded-[2.5rem] p-8 border-red-500/5 hover:border-red-500/20"
           >
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-red-500/15 to-rose-500/5 border border-red-500/15">
-                <Building2 className="h-[18px] w-[18px] text-red-400" strokeWidth={2} />
+            <div className="mb-8 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-500/10 border border-red-500/20">
+                <Building2 className="h-6 w-6 text-red-600" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[15px] font-semibold text-white">Câmbio Convencional</h3>
-                <p className="text-[12px] text-white/35">Bancos tradicionais</p>
+                <h3 className="text-lg font-bold text-foreground">Câmbio Convencional</h3>
+                <p className="text-[13px] font-bold text-foreground/30 uppercase tracking-widest">Bancos tradicionais</p>
               </div>
             </div>
             
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {traditionalItems.map((item, index) => (
-                <li key={index} className="flex items-center justify-between py-1.5 border-b border-white/[0.04] last:border-0">
-                  <span className="text-[13px] text-white/45">{item.label}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[13px] font-semibold text-red-400/80">{item.value}</span>
-                    <X className="h-3.5 w-3.5 text-red-400/40" strokeWidth={2.5} />
+                <li key={index} className="flex items-center justify-between py-2 border-b border-foreground/[0.03] last:border-0">
+                  <span className="text-[14px] font-medium text-foreground/50">{item.label}</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-[14px] font-bold text-red-600">{item.value}</span>
+                    <X className="h-4 w-4 text-red-600/30" strokeWidth={3} />
                   </div>
                 </li>
               ))}
@@ -76,32 +78,32 @@ const ComparisonSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative glass-card rounded-2xl p-5 sm:p-6 border-emerald-500/15 hover:border-emerald-500/20"
+            className="relative glass-card rounded-[2.5rem] p-8 border-emerald-500/5 hover:border-emerald-500/20 bg-emerald-500/[0.02]"
           >
-            <div className="absolute -top-2.5 right-5">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                <Crown className="h-3 w-3" strokeWidth={2.5} />
+            <div className="absolute -top-3 right-8">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                <Crown className="h-3.5 w-3.5" strokeWidth={2.5} />
                 Recomendado
               </span>
             </div>
             
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/15 to-teal-500/5 border border-emerald-500/15">
-                <Zap className="h-[18px] w-[18px] text-emerald-400" strokeWidth={2} />
+            <div className="mb-8 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
+                <Zap className="h-6 w-6 text-emerald-600" strokeWidth={2.5} />
               </div>
               <div>
-                <h3 className="text-[15px] font-semibold text-white">OTC com Stablecoins</h3>
-                <p className="text-[12px] text-white/35">Otsem Bank</p>
+                <h3 className="text-lg font-bold text-foreground">OTC com Stablecoins</h3>
+                <p className="text-[13px] font-bold text-emerald-600 uppercase tracking-widest">Otsem Pay</p>
               </div>
             </div>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {otcItems.map((item, index) => (
-                <li key={index} className="flex items-center justify-between py-1.5 border-b border-white/[0.04] last:border-0">
-                  <span className="text-[13px] text-white/45">{item.label}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[13px] font-semibold text-emerald-400">{item.value}</span>
-                    <Check className="h-3.5 w-3.5 text-emerald-400/60" strokeWidth={2.5} />
+                <li key={index} className="flex items-center justify-between py-2 border-b border-emerald-500/10 last:border-0">
+                  <span className="text-[14px] font-medium text-foreground/50">{item.label}</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-[14px] font-bold text-emerald-600">{item.value}</span>
+                    <Check className="h-4 w-4 text-emerald-600" strokeWidth={3} />
                   </div>
                 </li>
               ))}
@@ -109,8 +111,6 @@ const ComparisonSection = () => {
           </motion.div>
         </div>
       </div>
-      
-      <div className="absolute inset-x-0 top-0 divider-glow" />
     </section>
   );
 };
