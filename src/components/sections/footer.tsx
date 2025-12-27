@@ -3,16 +3,48 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
 import { Zap } from "lucide-react";
 
 const Footer = () => {
-// ... around line 42
-              <a href="/" className="inline-flex items-center gap-2 mb-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-white/10">
-                  <Zap className="w-4.5 h-4.5 text-sky-400" />
-                </div>
-                <span className="text-base font-semibold tracking-tight">
+  const footerLinks = {
+    produto: [
+      { label: "Recursos", href: "#recursos" },
+      { label: "Preços", href: "#precos" },
+      { label: "API", href: "#" },
+      { label: "Integrações", href: "#" },
+    ],
+    empresa: [
+      { label: "Sobre nós", href: "#" },
+      { label: "Blog", href: "#" },
+      { label: "Carreiras", href: "#" },
+      { label: "Contato", href: "#" },
+    ],
+    legal: [
+      { label: "Termos de uso", href: "#" },
+      { label: "Privacidade", href: "#" },
+      { label: "Cookies", href: "#" },
+      { label: "Status", href: "#" },
+    ],
+  };
+
+  return (
+    <footer className="relative z-10 w-full px-5 sm:px-6 pt-14 sm:pt-20 pb-6 safe-bottom">
+      <div className="absolute inset-x-0 top-0 divider-glow" />
+      
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-5 lg:gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="col-span-2 lg:col-span-2"
+          >
+            <a href="/" className="inline-flex items-center gap-2 mb-4">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-white/10">
+                <Zap className="w-4.5 h-4.5 text-sky-400" />
+              </div>
+              <span className="text-base font-semibold tracking-tight">
                 <span className="text-gradient-primary">Otsem</span>
                 <span className="text-white/90">Pay</span>
               </span>
