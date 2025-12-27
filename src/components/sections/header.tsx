@@ -66,14 +66,14 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/2602d9b6-b573-4932-8200-31165a0c934e-otsem-web-vercel-app/assets/icons/logo-1.png"
-                  alt="OtsemPay"
-                  width={36}
-                  height={36}
-                  className="object-contain"
-                  priority
-                />
+                  <Image
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814822313.png?width=8000&height=8000&resize=contain"
+                    alt="OtsemPay"
+                    width={36}
+                    height={36}
+                    className="object-contain scale-110"
+                    priority
+                  />
               </motion.div>
               <span className="text-base sm:text-lg font-semibold tracking-tight flex items-center">
                 <span className="text-gradient-primary">Otsem</span>
