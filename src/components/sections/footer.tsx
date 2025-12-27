@@ -28,9 +28,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative z-10 w-full px-5 sm:px-6 pt-16 sm:pt-24 pb-8 bg-white/40 backdrop-blur-md">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-2 gap-10 lg:grid-cols-5 lg:gap-12">
+    <footer className="relative z-10 w-full px-5 sm:px-6 pt-24 pb-12 overflow-hidden bg-white/40 backdrop-blur-md">
+      {/* Subtle Satoshi Art in Footer */}
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 opacity-[0.05] grayscale pointer-events-none -z-10">
+        <img 
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766818564418.png" 
+          alt="Satoshi" 
+          className="w-full h-full object-contain rotate-12"
+        />
+      </div>
+
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 gap-10 lg:grid-cols-5 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,23 +47,23 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="col-span-2 lg:col-span-2"
           >
-              <a href="/" className="inline-flex items-center gap-3 mb-6 group">
-                <img 
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
-                  alt="OtsemPay Logo" 
-                  className="w-9 h-9 object-contain"
-                />
-                  <span className="text-[1.375rem] font-bold tracking-tight">
-                  <span className="text-primary">Otsem</span>
-                  <span className="text-foreground">Pay</span>
-                </span>
-              </a>
-            <p className="max-w-[280px] text-[14px] text-foreground/50 leading-relaxed font-medium mb-6">
-              Movendo o capital global com a agilidade dos ativos digitais. Transparência e segurança em cada conversão.
+            <a href="/" className="inline-flex items-center gap-3 mb-8 group">
+              <img 
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
+                alt="OtsemPay Logo" 
+                className="w-10 h-10 object-contain transition-transform duration-500 group-hover:rotate-12"
+              />
+              <span className="text-[1.5rem] font-black tracking-tighter">
+                <span className="text-primary">Otsem</span>
+                <span className="text-foreground">Pay</span>
+              </span>
+            </a>
+            <p className="max-w-[320px] text-[15px] text-foreground/50 leading-relaxed font-semibold mb-8">
+              Redefinindo a liquidez global com tecnologia de ponta e segurança absoluta. Sua ponte entre o tradicional e o digital.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] font-bold text-emerald-600 uppercase tracking-widest">Sistemas Online</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-yellow-500 animate-pulse" />
+              <span className="text-[10px] font-black text-yellow-600 uppercase tracking-[0.2em]">Snapshot Global Ativo</span>
             </div>
           </motion.div>
 
