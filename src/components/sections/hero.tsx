@@ -69,7 +69,7 @@ const HeroSection = () => {
           <motion.div variants={itemVariants} className="mb-12">
             <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/40 backdrop-blur-3xl border border-white/60 shadow-2xl shadow-black/5 text-primary font-black text-[10px] uppercase tracking-[0.4em]">
               <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_12px_rgba(var(--primary-rgb),0.5)]" />
-              <span className="!whitespace-pre-line">WEB3 ERA OF BORDERLESS BANKING</span>
+              <span className="!whitespace-pre-line">THE WEB3 ERA OF BORDERLESS BANKING</span>
             </div>
           </motion.div>
 
