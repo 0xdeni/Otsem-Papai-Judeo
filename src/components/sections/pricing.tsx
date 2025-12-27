@@ -1,10 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Sparkles, Headphones } from "lucide-react";
+import haptic from "@/lib/haptics";
 
 const Pricing = () => {
+  const handleButtonClick = useCallback(() => {
+    haptic.medium();
+  }, []);
+
   const plans = [
     {
       name: "Operação OTC",
@@ -19,8 +24,8 @@ const Pricing = () => {
         "Suporte dedicado"
       ],
       cta: "Começar agora",
+      icon: Sparkles,
       popular: false,
-      gradient: "from-white/5 to-white/[0.02]"
     },
     {
       name: "Alta Volumetria",
@@ -35,79 +40,85 @@ const Pricing = () => {
         "Condições especiais"
       ],
       cta: "Falar com especialista",
+      icon: Headphones,
       popular: true,
-      gradient: "from-sky-500/10 to-cyan-500/5"
     }
   ];
 
   return (
-    <section id="precos" className="relative z-10 py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+    <section id="precos" className="relative z-10 py-14 sm:py-20">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 sm:mb-16 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-10 sm:mb-12 text-center"
         >
-          <div className="section-badge mx-auto mb-6">Preços</div>
+          <div className="section-badge mx-auto mb-5">Preços</div>
           <h2 className="font-section">Taxas transparentes</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base sm:text-lg text-white/50">
+          <p className="mx-auto mt-3 max-w-md text-[14px] sm:text-[15px] text-white/45">
             Sem taxas escondidas. Você sabe exatamente quanto vai pagar.
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-2">
+        <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -4 }}
-              className={`relative glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 ${
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -3 }}
+              className={`relative glass-card rounded-2xl p-5 sm:p-6 ${
                 plan.popular 
-                  ? "border-sky-500/20 hover:border-sky-500/30" 
+                  ? "border-sky-500/15 hover:border-sky-500/20" 
                   : "hover:border-white/10"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 right-6">
-                  <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded-full">
+                <div className="absolute -top-2.5 right-5">
+                  <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded-full">
                     Popular
                   </span>
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-white">{plan.name}</h3>
-                <p className="mt-1 text-sm text-white/40">{plan.description}</p>
+              <div className="mb-5">
+                <div className="flex items-center gap-2.5 mb-1">
+                  <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${plan.popular ? 'bg-sky-500/10 border border-sky-500/15' : 'bg-white/5 border border-white/8'}`}>
+                    <plan.icon className={`h-4 w-4 ${plan.popular ? 'text-sky-400' : 'text-white/60'}`} strokeWidth={2} />
+                  </div>
+                  <h3 className="text-[15px] sm:text-base font-semibold text-white">{plan.name}</h3>
+                </div>
+                <p className="text-[12px] sm:text-[13px] text-white/40">{plan.description}</p>
               </div>
 
-              <div className="mb-8">
-                <span className="text-sm font-medium text-white/50">{plan.priceLabel}</span>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl sm:text-5xl font-bold tracking-tight text-white">{plan.price}</span>
-                  <span className="text-sm text-white/40">{plan.priceSuffix}</span>
+              <div className="mb-6">
+                <span className="text-[12px] font-medium text-white/45">{plan.priceLabel}</span>
+                <div className="flex items-baseline gap-1 mt-0.5">
+                  <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">{plan.price}</span>
+                  <span className="text-[12px] text-white/35">{plan.priceSuffix}</span>
                 </div>
               </div>
 
-              <ul className="mb-8 space-y-3">
+              <ul className="mb-6 space-y-2.5">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                      <Check className="h-3 w-3 text-emerald-400" strokeWidth={3} />
+                  <li key={i} className="flex items-center gap-2.5">
+                    <div className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/15">
+                      <Check className="h-2.5 w-2.5 text-emerald-400" strokeWidth={3} />
                     </div>
-                    <span className="text-sm text-white/60">{feature}</span>
+                    <span className="text-[13px] text-white/55">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                onClick={handleButtonClick}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full rounded-xl py-3.5 text-sm font-semibold transition-all ${
+                className={`w-full rounded-xl py-3 text-[13px] font-semibold transition-all ${
                   plan.popular
                     ? "btn-primary"
                     : "glass-button text-white"
@@ -120,7 +131,7 @@ const Pricing = () => {
         </div>
       </div>
       
-      <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute left-1/2 top-1/2 -z-10 h-[400px] w-[550px] -translate-x-1/2 -translate-y-1/2 bg-indigo-500/[0.04] blur-[100px] rounded-full pointer-events-none" />
     </section>
   );
 };
