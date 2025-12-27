@@ -39,46 +39,47 @@ const TrustedBy = () => {
   ];
 
   return (
-    <section className="relative z-10 py-12 sm:py-14 bg-white/30 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
+    <section className="relative py-20 overflow-hidden bg-white/40">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent pointer-events-none" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
         >
-          Confiado por empresas e traders globais
-        </motion.p>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/60 border border-white shadow-sm text-primary font-bold text-xs uppercase tracking-widest mb-4">
+            Ecosystem Partners
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground">
+            Confiado por os gigantes do mercado
+          </h2>
+        </motion.div>
         
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12 sm:gap-y-10 lg:gap-x-16"
-        >
+        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
           {logos.map((logo, index) => (
             <motion.div
               key={logo.name}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="relative group flex items-center justify-center"
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative"
             >
-              <div className="relative opacity-40 grayscale hover:grayscale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
+              <div className="opacity-40 grayscale hover:grayscale-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110 filter drop-shadow-sm">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={logo.width}
                   height={logo.height}
-                  className="h-6 w-auto object-contain sm:h-7"
+                  className="h-8 md:h-10 w-auto object-contain"
                 />
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
