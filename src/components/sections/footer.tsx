@@ -28,11 +28,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative z-10 w-full px-5 sm:px-6 pt-14 sm:pt-20 pb-6 safe-bottom">
-      <div className="absolute inset-x-0 top-0 divider-glow" />
-      
+    <footer className="relative z-10 w-full px-5 sm:px-6 pt-16 sm:pt-24 pb-8 bg-white/40 backdrop-blur-md">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-5 lg:gap-8">
+        <div className="grid grid-cols-2 gap-10 lg:grid-cols-5 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,21 +38,21 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="col-span-2 lg:col-span-2"
           >
-            <a href="/" className="inline-flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-white/10">
-                <Zap className="w-4.5 h-4.5 text-sky-400" />
+            <a href="/" className="inline-flex items-center gap-2 mb-6">
+              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 border border-primary/20">
+                <Zap className="w-5 h-5 text-primary" />
               </div>
-              <span className="text-base font-semibold tracking-tight">
-                <span className="text-gradient-primary">Otsem</span>
-                <span className="text-white/90">Pay</span>
+              <span className="text-xl font-bold tracking-tight">
+                <span className="text-primary">Otsem</span>
+                <span className="text-foreground">Pay</span>
               </span>
             </a>
-            <p className="max-w-[260px] text-[13px] text-white/40 leading-relaxed mb-4">
-              Revolucionando a forma como o mundo interage com o dinheiro. Transparência, responsabilidade e agilidade.
+            <p className="max-w-[280px] text-[14px] text-foreground/50 leading-relaxed font-medium mb-6">
+              Movendo o capital global com a agilidade dos ativos digitais. Transparência e segurança em cada conversão.
             </p>
-            <div className="inline-flex items-center gap-2">
-              <span className="status-dot text-emerald-400" />
-              <span className="text-[11px] font-medium text-emerald-500/70">Todos os sistemas operacionais</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] font-bold text-emerald-600 uppercase tracking-widest">Sistemas Online</span>
             </div>
           </motion.div>
 
@@ -64,11 +62,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
           >
-            <h3 className="mb-3.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">Produto</h3>
-            <ul className="space-y-2.5">
+            <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30">Produto</h3>
+            <ul className="space-y-3">
               {footerLinks.produto.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-[13px] text-white/40 transition-colors hover:text-white">
+                  <a href={link.href} className="text-[14px] font-semibold text-foreground/50 transition-colors hover:text-primary">
                     {link.label}
                   </a>
                 </li>
@@ -82,11 +80,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.12 }}
           >
-            <h3 className="mb-3.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">Empresa</h3>
-            <ul className="space-y-2.5">
+            <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30">Empresa</h3>
+            <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-[13px] text-white/40 transition-colors hover:text-white">
+                  <a href={link.href} className="text-[14px] font-semibold text-foreground/50 transition-colors hover:text-primary">
                     {link.label}
                   </a>
                 </li>
@@ -100,11 +98,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.16 }}
           >
-            <h3 className="mb-3.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">Legal</h3>
-            <ul className="space-y-2.5">
+            <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30">Legal</h3>
+            <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-[13px] text-white/40 transition-colors hover:text-white">
+                  <a href={link.href} className="text-[14px] font-semibold text-foreground/50 transition-colors hover:text-primary">
                     {link.label}
                   </a>
                 </li>
@@ -118,12 +116,12 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 sm:mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/[0.04] pt-6 sm:flex-row"
+          className="mt-16 sm:mt-24 flex flex-col items-center justify-between gap-4 border-t border-foreground/[0.05] pt-8 sm:flex-row"
         >
-          <p className="text-[11px] sm:text-[12px] text-white/25">
+          <p className="text-[12px] font-medium text-foreground/20">
             © 2025 OtsemPay. Todos os direitos reservados.
           </p>
-          <p className="text-[11px] sm:text-[12px] text-white/20">
+          <p className="text-[12px] font-medium text-foreground/20">
             CNPJ: 00.000.000/0001-00
           </p>
         </motion.div>
