@@ -80,13 +80,13 @@ const HeroSection = () => {
             className="font-black tracking-tightest text-foreground leading-[0.85] mb-14 relative">
 
             <div className="relative mb-2 whitespace-nowrap">
-              <span className="text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
+              <span className="text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
                 Sua ponte
               </span>
             </div>
 
             {/* The Yellow Wave - Refined and Glowing Flow */}
-            <div className="relative h-12 sm:h-16 lg:h-20 -my-4 sm:-my-6 lg:-my-8 z-10">
+            <div className="relative h-10 sm:h-16 lg:h-20 -my-3 sm:-my-6 lg:-my-8 z-10">
               <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
@@ -154,7 +154,7 @@ const HeroSection = () => {
             </div>
             
             <div className="relative whitespace-nowrap">
-              <span className="text-[12vw] sm:text-[11vw] lg:text-[8.5rem] xl:text-[9.5rem] text-primary leading-none drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
+              <span className="text-[11vw] sm:text-[10vw] lg:text-[8.5rem] xl:text-[9.5rem] text-primary leading-none drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
                 líquida <span className="text-foreground drop-shadow-2xl">global.</span>
               </span>
             </div>
