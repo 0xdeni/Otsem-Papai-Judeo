@@ -39,13 +39,11 @@ const Footer = () => {
             className="col-span-2 lg:col-span-2"
           >
               <a href="/" className="inline-flex items-center gap-3 mb-6 group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-primary/10 shadow-sm overflow-hidden">
-                  <img 
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
-                    alt="OtsemPay Logo" 
-                    className="w-7 h-7 object-contain"
-                  />
-                </div>
+                <img 
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
+                  alt="OtsemPay Logo" 
+                  className="w-9 h-9 object-contain"
+                />
                 <span className="text-xl font-bold tracking-tight">
                   <span className="text-primary">Otsem</span>
                   <span className="text-foreground">Pay</span>
