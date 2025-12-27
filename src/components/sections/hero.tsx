@@ -35,20 +35,22 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
         delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1]
+        type: "spring",
+        stiffness: 120,
+        damping: 20,
+        mass: 1
       }
     }
   };
@@ -69,94 +71,126 @@ const HeroSection = () => {
           <motion.div variants={itemVariants} className="mb-12">
             <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/40 backdrop-blur-3xl border border-white/60 shadow-2xl shadow-black/5 text-primary font-black text-[10px] uppercase tracking-[0.4em]">
               <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_12px_rgba(var(--primary-rgb),0.5)]" />
-              <span className="!whitespace-pre-line !whitespace-pre-line !whitespace-pre-line">WEB3 BORDERLESS BANKING</span>
+              <span className="whitespace-nowrap">WEB3 BORDERLESS BANKING</span>
             </div>
           </motion.div>
 
-            <motion.h1
+          <motion.h1
             variants={itemVariants}
             className="font-black tracking-tightest text-foreground leading-[0.85] mb-14 relative">
 
-              <div className="relative mb-6 whitespace-nowrap">
-                <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
-                  Sua ponte
-                </span>
-              </div>
-              
-              <div className="relative group cursor-default inline-block w-full">
-                {/* Artistic Digital Art Wave - Refined and Glowing */}
-                <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 3, ease: "easeOut" }}
-                className="absolute -inset-x-32 -inset-y-24 -z-10 pointer-events-none">
+            <div className="relative mb-2 whitespace-nowrap">
+              <span className="text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
+                Sua ponte
+              </span>
+            </div>
 
-                  <svg viewBox="0 0 1000 400" className="w-full h-full opacity-60 blur-3xl filter saturate-200">
-                    <defs>
-                      <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#EAB308" stopOpacity="0.2" />
-                        <stop offset="50%" stopColor="#EAB308" stopOpacity="1" />
-                        <stop offset="100%" stopColor="#EAB308" stopOpacity="0.2" />
-                      </linearGradient>
-                    </defs>
-                    <motion.path
-                    d="M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
+            {/* The Yellow Wave - Refined and Glowing Flow */}
+            <div className="relative h-12 sm:h-16 lg:h-20 -my-4 sm:-my-6 lg:-my-8 z-10">
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 1.5, delay: 0.4, type: "spring", stiffness: 50 }}
+                className="absolute inset-0 flex items-center justify-center">
+                <svg viewBox="0 0 1000 100" className="w-full h-full preserve-3d">
+                  <defs>
+                    <linearGradient id="waveGradientHero" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#EAB308" stopOpacity="0" />
+                      <stop offset="20%" stopColor="#EAB308" stopOpacity="0.8" />
+                      <stop offset="50%" stopColor="#FACC15" stopOpacity="1" />
+                      <stop offset="80%" stopColor="#EAB308" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                      <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <motion.path
+                    d="M 0 50 Q 125 0 250 50 T 500 50 T 750 50 T 1000 50"
                     fill="none"
-                    stroke="url(#waveGradient)"
-                    strokeWidth="120"
+                    stroke="url(#waveGradientHero)"
+                    strokeWidth="8"
                     strokeLinecap="round"
+                    filter="url(#glow)"
                     animate={{
                       d: [
-                      "M 100 200 Q 250 100 400 200 T 700 200 T 900 200",
-                      "M 100 200 Q 250 300 400 200 T 700 100 T 900 200",
-                      "M 100 200 Q 250 100 400 200 T 700 200 T 900 200"]
-
+                        "M 0 50 Q 125 0 250 50 T 500 50 T 750 50 T 1000 50",
+                        "M 0 50 Q 125 100 250 50 T 500 50 T 750 50 T 1000 50",
+                        "M 0 50 Q 125 0 250 50 T 500 50 T 750 50 T 1000 50"
+                      ]
                     }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} />
-
-                  </svg>
-                </motion.div>
-
-                <div className="relative whitespace-nowrap">
-                  <span className="text-[13vw] sm:text-[12vw] lg:text-[9rem] xl:text-[11rem] text-primary leading-none transition-all duration-1000 group-hover:tracking-tightest drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
-                    líquida <span className="text-foreground drop-shadow-2xl">global.</span>
-                  </span>
-                </div>
-              </div>
-            </motion.h1>
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                  <motion.path
+                    d="M 0 50 Q 125 100 250 50 T 500 50 T 750 50 T 1000 50"
+                    fill="none"
+                    stroke="url(#waveGradientHero)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    opacity="0.5"
+                    animate={{
+                      d: [
+                        "M 0 50 Q 125 100 250 50 T 500 50 T 750 50 T 1000 50",
+                        "M 0 50 Q 125 0 250 50 T 500 50 T 750 50 T 1000 50",
+                        "M 0 50 Q 125 100 250 50 T 500 50 T 750 50 T 1000 50"
+                      ]
+                    }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                </svg>
+              </motion.div>
+            </div>
+            
+            <div className="relative whitespace-nowrap">
+              <span className="text-[12vw] sm:text-[11vw] lg:text-[8.5rem] xl:text-[9.5rem] text-primary leading-none drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
+                líquida <span className="text-foreground drop-shadow-2xl">global.</span>
+              </span>
+            </div>
+          </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="max-w-2xl text-2xl md:text-3xl text-muted-foreground font-medium leading-relaxed mb-16">
-
+            className="max-w-2xl text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed mb-16">
             Converta BRL em USDT instantaneamente com <span className="text-foreground font-black">segurança institucional</span> e as menores taxas do mercado global.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center gap-8">
+            className="flex flex-col sm:flex-row items-center gap-6">
 
             <motion.a
               href="/register"
               className="w-full sm:w-auto"
               onClick={handleButtonClick}
-              whileHover={{ y: -6, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}>
+              whileHover={{ y: -4, scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}>
 
-              <button className="btn-premium w-full sm:w-auto group px-14 py-7 text-2xl rounded-2xl shadow-2xl shadow-primary/30 font-black tracking-tight">
+              <button className="btn-premium w-full sm:w-auto group px-10 py-5 text-xl rounded-2xl shadow-2xl shadow-primary/30 font-black tracking-tight">
                 Abrir Conta VIP
-                <ArrowRight className="w-7 h-7 transition-transform group-hover:translate-x-2" />
+                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
               </button>
             </motion.a>
             <motion.a
               href="#como-funciona"
               className="w-full sm:w-auto"
               onClick={() => haptic.light()}
-              whileHover={{ y: -6, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}>
+              whileHover={{ y: -4, scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}>
 
-              <button className="btn-premium-outline w-full sm:w-auto px-14 py-7 text-2xl rounded-2xl font-black tracking-tight border-2">
-                <Globe className="w-7 h-7 text-primary" />
+              <button className="btn-premium-outline w-full sm:w-auto px-10 py-5 text-xl rounded-2xl font-black tracking-tight border-2">
+                <Globe className="w-6 h-6 text-primary" />
                 Explorar Ecossistema
               </button>
             </motion.a>
@@ -164,7 +198,7 @@ const HeroSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-20 flex items-center gap-12 border-t border-black/[0.08] pt-14">
+            className="mt-16 flex items-center gap-10 border-t border-black/[0.05] pt-12">
 
             <div className="flex -space-x-5">
               {[1, 2, 3, 4, 5].map((i) =>
