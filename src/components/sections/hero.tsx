@@ -150,21 +150,25 @@ const HeroSection = () => {
           className="w-full lg:w-1/2 relative perspective-1000"
         >
           {/* Floating cards around the main mockup */}
-          <motion.div 
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-10 -right-4 z-20 liquid-glass p-5 rounded-3xl shadow-2xl hidden md:block"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                <Zap className="w-6 h-6" />
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-10 -right-4 z-20 liquid-glass p-5 rounded-3xl shadow-2xl hidden md:block"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-primary/10 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
+                    alt="Logo" 
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Liquidez</p>
+                  <p className="text-xl font-black text-foreground">Instantânea</p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Liquidez</p>
-                <p className="text-xl font-black text-foreground">Instantânea</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
           <motion.div 
             animate={{ y: [0, 15, 0] }}
