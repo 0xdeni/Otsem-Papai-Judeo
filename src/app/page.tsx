@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 import TrustedBy from "@/components/sections/trusted-by";
@@ -14,11 +15,34 @@ import Footer from "@/components/sections/footer";
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden selection:bg-primary/20 selection:text-primary">
-      {/* Dynamic Background Blobs */}
+      {/* Premium Dynamic Background - Performance Optimized */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/5 blur-[120px] rounded-full animate-liquid" style={{ animationDuration: '20s' }} />
-        <div className="absolute bottom-[10%] right-[-5%] w-[40vw] h-[40vw] bg-accent/5 blur-[100px] rounded-full animate-liquid" style={{ animationDuration: '25s', animationDirection: 'reverse' }} />
-        <div className="absolute top-[40%] left-[20%] w-[30vw] h-[30vw] bg-primary/3 blur-[140px] rounded-full animate-liquid" style={{ animationDuration: '30s' }} />
+        <motion.div 
+          animate={{ 
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.15, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/5 blur-[120px] rounded-full" 
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, -30, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+          className="absolute bottom-[10%] right-[-5%] w-[40vw] h-[40vw] bg-accent/5 blur-[100px] rounded-full" 
+        />
+        <motion.div 
+          animate={{ 
+            opacity: [0.02, 0.05, 0.02],
+            scale: [0.8, 1, 0.8]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[30%] left-[25%] w-[40vw] h-[40vw] bg-primary/3 blur-[140px] rounded-full" 
+        />
       </div>
 
       <Header />
