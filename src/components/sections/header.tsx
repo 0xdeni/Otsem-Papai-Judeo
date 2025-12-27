@@ -38,21 +38,21 @@ const Header = () => {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6"
-      >
-          <motion.div
-            layout
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={`mx-auto flex items-center justify-between transition-all duration-700 liquid-glass rounded-3xl ${
-              scrolled
-                ? "px-6 py-3 max-w-4xl mt-4"
-                : "px-8 py-5 max-w-7xl mt-2 border-white/80"
-            }`}
-          >
+        <motion.header
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+          className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6"
+        >
+            <motion.div
+              layout
+              transition={{ type: "spring", stiffness: 120, damping: 25 }}
+              className={`mx-auto flex items-center justify-between transition-all duration-700 liquid-glass rounded-3xl ${
+                scrolled
+                  ? "px-6 py-3 max-w-4xl mt-4"
+                  : "px-8 py-5 max-w-7xl mt-2 border-white/80"
+              }`}
+            >
                 <motion.a 
                   className="flex items-center gap-3 group" 
                   href="/"
