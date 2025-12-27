@@ -1,3 +1,4 @@
+/* Updated: 2025-12-27T05:30:15.829Z */
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
@@ -25,6 +26,10 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+  },
   icons: {
     icon: [
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
@@ -49,7 +54,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased selection:bg-sky-500/30 selection:text-white">
         <div className="mesh-gradient-bg" aria-hidden="true" />
         <div className="noise-overlay" aria-hidden="true" />
         <Script
