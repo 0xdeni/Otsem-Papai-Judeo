@@ -122,27 +122,26 @@ const FeaturesGrid = () => {
           </div>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {mainFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8 }}
-              className="glass-card rounded-[2.5rem] p-7"
-            >
-              <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl ${feature.color} border ${feature.borderColor} transition-transform duration-500 group-hover:scale-110`}>
-                <feature.icon className={`h-6 w-6 ${feature.iconColor}`} strokeWidth={2.5} />
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-3">{feature.title}</h3>
-              <p className="text-[14px] text-foreground/45 leading-relaxed font-medium">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {mainFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="premium-card group"
+              >
+                <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-[2rem] ${feature.color} border ${feature.borderColor} transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg shadow-primary/5`}>
+                  <feature.icon className={`h-8 w-8 ${feature.iconColor}`} strokeWidth={2.5} />
+                </div>
+                <h3 className="text-2xl font-black text-foreground mb-4 tracking-tight">{feature.title}</h3>
+                <p className="text-base text-muted-foreground leading-relaxed font-semibold opacity-80 group-hover:opacity-100 transition-opacity">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
       </div>
     </section>
   );
