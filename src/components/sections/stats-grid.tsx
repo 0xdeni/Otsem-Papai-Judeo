@@ -41,29 +41,32 @@ const stats = [
 
   const StatsGrid = () => {
     return (
-      <section className="relative z-10 py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6">
-          <div className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4">
+      <section className="relative z-10 py-20 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -5 }}
-                className="group glass-card rounded-[2rem] p-6 sm:p-7"
+                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group premium-card"
               >
-                <div className={`mb-4 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-2xl ${stat.color} border ${stat.borderColor} transition-transform duration-500 group-hover:scale-110`}>
-                  <stat.icon className={`h-5 w-5 sm:h-6 sm:w-6 ${stat.iconColor}`} strokeWidth={2.5} />
+                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${stat.color} border ${stat.borderColor} transition-all duration-500 group-hover:rotate-6`}>
+                  <stat.icon className={`h-7 w-7 ${stat.iconColor}`} strokeWidth={2.5} />
                 </div>
                 
-                <div className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                <div className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
                   {stat.value}
                 </div>
                 
-                <div className="mt-1.5 text-[12px] sm:text-[13px] text-foreground/40 leading-relaxed font-bold uppercase tracking-wider">
+                <div className="mt-2 text-sm text-muted-foreground font-bold uppercase tracking-widest">
                   {stat.label}
+                </div>
+
+                <div className="absolute bottom-0 right-0 p-6 opacity-0 group-hover:opacity-10 transition-opacity">
+                  <stat.icon className="h-20 w-20 text-foreground" strokeWidth={1} />
                 </div>
               </motion.div>
             ))}
