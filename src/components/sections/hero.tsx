@@ -263,9 +263,31 @@ const HeroSection = () => {
                     ))}
                   </div>
 
-                  <button className="w-full h-14 btn-premium rounded-2xl font-bold text-base mt-4">
-                    Transferência Global
-                  </button>
+                    <div className="pt-6 border-t border-black/[0.03] mt-2">
+                      <div className="flex items-center justify-between px-2">
+                        {[
+                          { icon: ArrowUpRight, label: "Enviar", color: "bg-primary text-white" },
+                          { icon: ArrowDownRight, label: "Receber", color: "bg-slate-100 text-foreground" },
+                          { icon: Repeat, label: "Trocar", color: "bg-slate-100 text-foreground" },
+                          { icon: LayoutGrid, label: "Mais", color: "bg-slate-100 text-foreground" },
+                        ].map((action, i) => (
+                          <motion.button
+                            key={i}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => haptic.light()}
+                            className="flex flex-col items-center gap-2 group"
+                          >
+                            <div className={`w-14 h-14 rounded-2xl ${action.color} flex items-center justify-center shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10`}>
+                              <action.icon className="w-6 h-6" />
+                            </div>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">
+                              {action.label}
+                            </span>
+                          </motion.button>
+                        ))}
+                      </div>
+                    </div>
                 </div>
               </div>
             </motion.div>
