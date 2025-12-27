@@ -75,52 +75,52 @@ const FeaturesGrid = () => {
   return (
     <section id="recursos" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <div className="mb-16 sm:mb-20">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider mb-6">
-                Recursos Premium
-              </div>
-              <h2 className="text-[32px] sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
-                Tudo que você precisa em um só lugar
-              </h2>
-              <p className="mt-5 text-base text-foreground/50 leading-relaxed font-medium max-w-md">
-                Ferramentas poderosas para gerenciar suas conversões com total controle, privacidade e segurança.
-              </p>
-            </motion.div>
+          <div className="mb-24 sm:mb-32">
+            <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-8">
+                  Recursos Premium
+                </div>
+                <h2 className="text-5xl md:text-7xl font-black tracking-tightest text-foreground leading-[1.1]">
+                  Ecossistema <br />
+                  <span className="text-primary/40">completo.</span>
+                </h2>
+                <p className="mt-8 text-lg text-muted-foreground leading-relaxed font-semibold max-w-md">
+                  Ferramentas de elite para gerenciar suas conversões com total privacidade e velocidade.
+                </p>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="grid gap-4 grid-cols-2"
-            >
-              {secondaryFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                  whileHover={{ y: -5 }}
-                  className="glass-card rounded-[2rem] p-5 border-white/40"
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
-                    <feature.icon className="h-5 w-5 text-primary" strokeWidth={2.5} />
-                  </div>
-                  <h3 className="font-bold text-foreground text-[14px]">{feature.title}</h3>
-                  <p className="mt-1 text-[12px] text-foreground/40 font-medium leading-tight">{feature.description}</p>
-                </motion.div>
-              ))}
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="grid gap-6 grid-cols-2"
+              >
+                {secondaryFeatures.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className="liquid-glass rounded-[2rem] p-6 border-white/40 group hover:-translate-y-1 transition-transform duration-300"
+                  >
+                    <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 border border-primary/10 transition-all duration-500 group-hover:scale-110">
+                      <feature.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-black text-foreground text-[15px] tracking-tight">{feature.title}</h3>
+                    <p className="mt-2 text-[12px] text-muted-foreground font-semibold leading-snug">{feature.description}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {mainFeatures.map((feature, index) => (
@@ -130,13 +130,13 @@ const FeaturesGrid = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="premium-card group"
+                className="liquid-glass p-10 rounded-[3rem] border-white/40 group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
               >
-                <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-[2rem] ${feature.color} border ${feature.borderColor} transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg shadow-primary/5`}>
-                  <feature.icon className={`h-8 w-8 ${feature.iconColor}`} strokeWidth={2.5} />
+                <div className={`mb-10 flex h-16 w-16 items-center justify-center rounded-2xl ${feature.color} border border-primary/10 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}>
+                  <feature.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-black text-foreground mb-4 tracking-tight">{feature.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed font-semibold opacity-80 group-hover:opacity-100 transition-opacity">
+                <p className="text-[15px] text-muted-foreground leading-relaxed font-semibold opacity-80 group-hover:opacity-100 transition-opacity">
                   {feature.description}
                 </p>
               </motion.div>
