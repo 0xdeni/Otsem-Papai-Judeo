@@ -102,13 +102,13 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <button
-                  type="button"
-                  className="btn-premium py-3 px-8 rounded-2xl text-sm shadow-2xl shadow-primary/40"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  Criar conta
-                </button>
+                  <button
+                    type="button"
+                    className="btn-premium py-3 px-8 rounded-2xl text-sm shadow-2xl shadow-primary/40"
+                  >
+                    <Sparkles className="w-4 h-4 text-yellow-300" />
+                    Criar conta
+                  </button>
               </motion.a>
             </div>
 
