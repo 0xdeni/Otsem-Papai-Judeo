@@ -145,13 +145,29 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full lg:w-1/2 relative perspective-1000"
-        >
-          {/* Floating cards around the main mockup */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-1/2 relative perspective-1000"
+          >
+            {/* Satoshi Digital Art Integration */}
+            <motion.div
+              animate={{ 
+                y: [0, -20, 0],
+                rotate: [0, 2, 0]
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-40 -left-20 w-[140%] h-[140%] -z-20 opacity-15 pointer-events-none grayscale contrast-125"
+            >
+              <img 
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766818564418.png" 
+                alt="Satoshi Digital Art" 
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+
+            {/* Floating cards around the main mockup */}
             <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
