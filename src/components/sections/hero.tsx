@@ -12,7 +12,11 @@ import {
   RefreshCw,
   ChevronDown,
   Globe,
-  Star
+  Star,
+  ArrowUpRight,
+  ArrowDownRight,
+  Repeat,
+  LayoutGrid
 } from "lucide-react";
 import haptic from "@/lib/haptics";
 
