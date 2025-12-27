@@ -70,24 +70,44 @@ const HeroSection = () => {
 
             <motion.h1 
               variants={itemVariants}
-              className="font-black tracking-tighter text-foreground leading-[0.9] mb-10"
+              className="font-black tracking-tighter text-foreground leading-[0.85] mb-12 relative"
             >
-              <span className="text-4xl md:text-5xl lg:text-6xl text-muted-foreground/60 block mb-2">Sua ponte</span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-x-4">
-                <span className="text-7xl md:text-9xl xl:text-[10rem] text-primary relative inline-block">
-                  líquida
-                  <motion.svg 
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, delay: 1 }}
-                    className="absolute -bottom-2 md:-bottom-6 left-0 w-full -z-10" 
-                    viewBox="0 0 100 10" 
-                    preserveAspectRatio="none"
-                  >
-                    <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="#EAB308" strokeWidth="4" strokeLinecap="round" className="opacity-40" />
-                  </motion.svg>
-                </span>
-                <span className="text-7xl md:text-9xl xl:text-[10rem] text-foreground">global.</span>
+              <span className="text-4xl md:text-5xl lg:text-6xl text-muted-foreground/40 block mb-4 ml-1">Sua ponte</span>
+              <div className="relative group cursor-default">
+                {/* Elegant Yellow Wave Behind Text */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 2, delay: 0.5 }}
+                  className="absolute -inset-x-20 -inset-y-10 -z-10 pointer-events-none overflow-visible"
+                >
+                  <svg viewBox="0 0 1000 400" className="w-full h-full opacity-30 blur-2xl">
+                    <motion.path
+                      d="M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
+                      fill="none"
+                      stroke="#EAB308"
+                      strokeWidth="60"
+                      strokeLinecap="round"
+                      animate={{
+                        d: [
+                          "M 100 200 Q 250 100 400 200 T 700 200 T 900 200",
+                          "M 100 200 Q 250 300 400 200 T 700 200 T 900 200",
+                          "M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
+                        ]
+                      }}
+                      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  </svg>
+                </motion.div>
+
+                <div className="flex flex-col gap-0 relative">
+                  <span className="text-[14vw] sm:text-[12vw] lg:text-[10rem] xl:text-[13rem] text-primary leading-none transition-all duration-700 group-hover:tracking-tighter">
+                    líquida
+                  </span>
+                  <span className="text-[14vw] sm:text-[12vw] lg:text-[10rem] xl:text-[13rem] text-foreground leading-none -mt-[0.1em]">
+                    global.
+                  </span>
+                </div>
               </div>
             </motion.h1>
 
