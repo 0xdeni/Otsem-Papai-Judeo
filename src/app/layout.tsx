@@ -1,4 +1,3 @@
-/* Updated: 2025-12-27T05:30:15.829Z */
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
@@ -11,7 +10,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#000000",
+  themeColor: "#8b5cf6",
 };
 
 export const metadata: Metadata = {
@@ -47,16 +46,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="antialiased selection:bg-sky-500/30 selection:text-white">
-        <div className="mesh-gradient-bg" aria-hidden="true" />
-        <div className="noise-overlay" aria-hidden="true" />
+      <body className="antialiased">
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
@@ -72,7 +67,7 @@ export default function RootLayout({
           data-include-search-params="true"
           data-only-in-iframe="true"
           data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+          data-custom-data='{"appName": "OtsemPay", "version": "1.1.0"}'
         />
         {children}
         <VisualEditsMessenger />
