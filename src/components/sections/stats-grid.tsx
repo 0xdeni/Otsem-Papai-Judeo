@@ -65,6 +65,7 @@ const StatsGrid = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-yellow-400 text-yellow-950 font-black text-[11px] uppercase tracking-[0.4em] mb-12 shadow-2xl shadow-yellow-400/30 ring-4 ring-yellow-400/10"
           >
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-950 animate-pulse" />
@@ -74,8 +75,8 @@ const StatsGrid = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tightest max-w-6xl leading-[0.85]"
+            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest max-w-6xl leading-[0.85]"
           >
             Poder financeiro <br />
             <span className="text-primary/30">sem fronteiras.</span>
@@ -88,23 +89,28 @@ const StatsGrid = () => {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: index * 0.1
+              }}
               className={`${stat.span} relative group h-full`}
             >
-              <div className="liquid-glass p-14 rounded-[4rem] h-full flex flex-col justify-between transition-all duration-700 hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] hover:-translate-y-3 border border-white/60 group-hover:bg-white/60">
-                <div className="space-y-12">
-                  <div className={`flex h-20 w-20 items-center justify-center rounded-2xl ${stat.color} border-2 ${stat.borderColor} shadow-inner transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl group-hover:shadow-primary/10`}>
-                    <stat.icon className={`h-10 w-10 ${stat.iconColor}`} strokeWidth={1.5} />
+              <div className="liquid-glass p-10 lg:p-14 rounded-[3rem] lg:rounded-[4rem] h-full flex flex-col justify-between transition-all duration-700 hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] hover:-translate-y-3 border border-white/60 group-hover:bg-white/60">
+                <div className="space-y-10 lg:space-y-12">
+                  <div className={`flex h-16 w-16 lg:h-20 lg:w-20 items-center justify-center rounded-2xl ${stat.color} border-2 ${stat.borderColor} shadow-inner transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl group-hover:shadow-primary/10`}>
+                    <stat.icon className={`h-8 w-8 lg:h-10 lg:w-10 ${stat.iconColor}`} strokeWidth={1.5} />
                   </div>
                   
                   <div>
-                    <div className="text-7xl lg:text-8xl font-black tracking-tightest text-foreground mb-6 flex items-baseline gap-3">
+                    <div className="text-5xl lg:text-7xl font-black tracking-tightest text-foreground mb-6 flex items-baseline gap-3">
                       {stat.value}
-                      {stat.value.includes('%') && <span className="text-yellow-500 text-4xl animate-bounce">↑</span>}
+                      {stat.value.includes('%') && <span className="text-yellow-500 text-3xl animate-bounce">↑</span>}
                     </div>
                     
-                    <div className="text-sm text-muted-foreground font-black uppercase tracking-[0.3em] leading-relaxed max-w-[240px]">
+                    <div className="text-[10px] lg:text-sm text-muted-foreground font-black uppercase tracking-[0.3em] leading-relaxed max-w-[240px]">
                       {stat.label}
                     </div>
                   </div>
