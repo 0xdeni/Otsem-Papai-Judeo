@@ -38,15 +38,19 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="col-span-2 lg:col-span-2"
           >
-            <a href="/" className="inline-flex items-center gap-2 mb-6">
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 border border-primary/20">
-                <Zap className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-xl font-bold tracking-tight">
-                <span className="text-primary">Otsem</span>
-                <span className="text-foreground">Pay</span>
-              </span>
-            </a>
+              <a href="/" className="inline-flex items-center gap-3 mb-6 group">
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-primary/10 shadow-sm overflow-hidden">
+                  <img 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766817112139.png?width=8000&height=8000&resize=contain" 
+                    alt="OtsemPay Logo" 
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+                <span className="text-xl font-bold tracking-tight">
+                  <span className="text-primary">Otsem</span>
+                  <span className="text-foreground">Pay</span>
+                </span>
+              </a>
             <p className="max-w-[280px] text-[14px] text-foreground/50 leading-relaxed font-medium mb-6">
               Movendo o capital global com a agilidade dos ativos digitais. Transparência e segurança em cada conversão.
             </p>
