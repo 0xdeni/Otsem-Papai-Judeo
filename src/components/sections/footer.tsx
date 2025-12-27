@@ -44,7 +44,7 @@ const Footer = () => {
                   alt="OtsemPay Logo" 
                   className="w-9 h-9 object-contain"
                 />
-                <span className="text-xl font-bold tracking-tight">
+                  <span className="text-[1.375rem] font-bold tracking-tight">
                   <span className="text-primary">Otsem</span>
                   <span className="text-foreground">Pay</span>
                 </span>
