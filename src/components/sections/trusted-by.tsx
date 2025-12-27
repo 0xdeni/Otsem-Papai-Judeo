@@ -3,13 +3,40 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import Image from "next/image";
+
 const TrustedBy = () => {
   const logos = [
-    { name: "Mercado Bitcoin", opacity: "opacity-25" },
-    { name: "Binance", opacity: "opacity-30" },
-    { name: "Coinbase", opacity: "opacity-25" },
-    { name: "Kraken", opacity: "opacity-20" },
-    { name: "Bitfinex", opacity: "opacity-25" }
+    { 
+      name: "Mercado Bitcoin", 
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814822313.png?width=8000&height=8000&resize=contain",
+      width: 40,
+      height: 40
+    },
+    { 
+      name: "Binance", 
+      src: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Binance_logo.svg",
+      width: 120,
+      height: 24
+    },
+    { 
+      name: "Coinbase", 
+      src: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Coinbase_Logo.svg",
+      width: 110,
+      height: 22
+    },
+    { 
+      name: "Kraken", 
+      src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Kraken_Logo.svg",
+      width: 100,
+      height: 25
+    },
+    { 
+      name: "Bitfinex", 
+      src: "https://upload.wikimedia.org/wikipedia/commons/7/77/Bitfinex_logo.svg",
+      width: 110,
+      height: 20
+    }
   ];
 
   return (
@@ -20,7 +47,7 @@ const TrustedBy = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/25"
+          className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/25"
         >
           Confiado por empresas e traders
         </motion.p>
@@ -30,7 +57,7 @@ const TrustedBy = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14"
+          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 sm:gap-x-14 sm:gap-y-12 lg:gap-x-20"
         >
           {logos.map((logo, index) => (
             <motion.div
@@ -39,9 +66,17 @@ const TrustedBy = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className={`text-[14px] sm:text-[15px] font-semibold text-white ${logo.opacity} transition-all duration-300 hover:opacity-50 cursor-default tracking-tight`}
+              className="relative group flex items-center justify-center"
             >
-              {logo.name}
+              <div className="relative opacity-[0.15] grayscale brightness-0 invert transition-all duration-500 group-hover:opacity-40 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-6 w-auto object-contain sm:h-7"
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>
