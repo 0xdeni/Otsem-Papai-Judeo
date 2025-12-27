@@ -166,63 +166,63 @@ const Header = () => {
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="fixed inset-x-4 top-[72px] z-50 md:hidden safe-top"
             >
-              <div className="glass-liquid rounded-2xl overflow-hidden">
-                <nav className="p-2">
-                  {navLinks.map((link, index) => (
+                <div className="liquid-glass rounded-2xl overflow-hidden shadow-2xl shadow-primary/5">
+                  <nav className="p-2">
+                    {navLinks.map((link, index) => (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        initial={{ opacity: 0, x: -16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.06, duration: 0.3 }}
+                        onClick={() => {
+                          haptic.selection();
+                          setMobileMenuOpen(false);
+                        }}
+                        className="flex items-center justify-between px-4 py-3.5 text-[15px] font-semibold text-foreground/60 hover:text-primary hover:bg-primary/5 rounded-xl transition-all active:scale-[0.98]"
+                      >
+                        {link.label}
+                        <ChevronRight className="w-4 h-4 text-foreground/20" />
+                      </motion.a>
+                    ))}
+                    
+                    <div className="h-px bg-foreground/[0.03] my-2 mx-3" />
+                    
                     <motion.a
-                      key={link.href}
-                      href={link.href}
+                      href="/login"
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.06, duration: 0.3 }}
+                      transition={{ delay: 0.2, duration: 0.3 }}
                       onClick={() => {
                         haptic.selection();
                         setMobileMenuOpen(false);
                       }}
-                      className="flex items-center justify-between px-4 py-3.5 text-[15px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all active:scale-[0.98]"
+                      className="flex items-center justify-between px-4 py-3.5 text-[15px] font-semibold text-foreground/60 hover:text-primary hover:bg-primary/5 rounded-xl transition-all active:scale-[0.98]"
                     >
-                      {link.label}
-                      <ChevronRight className="w-4 h-4 text-white/30" />
+                      Entrar
+                      <ChevronRight className="w-4 h-4 text-foreground/20" />
                     </motion.a>
-                  ))}
+                  </nav>
                   
-                  <div className="h-px bg-white/[0.06] my-2 mx-3" />
-                  
-                  <motion.a
-                    href="/login"
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.3 }}
-                    onClick={() => {
-                      haptic.selection();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="flex items-center justify-between px-4 py-3.5 text-[15px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all active:scale-[0.98]"
-                  >
-                    Entrar
-                    <ChevronRight className="w-4 h-4 text-white/30" />
-                  </motion.a>
-                </nav>
-                
-                <div className="p-3 pt-0">
-                  <motion.a
-                    href="/register"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25, duration: 0.3 }}
-                    onClick={() => {
-                      haptic.medium();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="block"
-                  >
-                    <button className="w-full btn-primary rounded-xl px-4 py-3.5 text-[15px] font-semibold flex items-center justify-center gap-2 active:scale-[0.98]">
-                      <Sparkles className="w-4 h-4" />
-                      Criar conta grátis
-                    </button>
-                  </motion.a>
+                  <div className="p-3 pt-0">
+                    <motion.a
+                      href="/register"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25, duration: 0.3 }}
+                      onClick={() => {
+                        haptic.medium();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="block"
+                    >
+                      <button className="w-full btn-primary rounded-xl px-4 py-3.5 text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-primary/20">
+                        <Sparkles className="w-4 h-4" />
+                        Criar conta grátis
+                      </button>
+                    </motion.a>
+                  </div>
                 </div>
-              </div>
             </motion.div>
           </>
         )}
