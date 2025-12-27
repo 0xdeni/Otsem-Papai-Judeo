@@ -2,40 +2,39 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
 import Image from "next/image";
 
 const TrustedBy = () => {
   const logos = [
     { 
-      name: "Mercado Bitcoin", 
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814822313.png?width=8000&height=8000&resize=contain",
-      width: 40,
-      height: 40
+      name: "Coinbase", 
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814951907.png?width=8000&height=8000&resize=contain",
+      width: 120,
+      height: 30
+    },
+    { 
+      name: "Kucoin", 
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814953475.png?width=8000&height=8000&resize=contain",
+      width: 120,
+      height: 30
     },
     { 
       name: "Binance", 
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Binance_logo.svg",
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814953465.png?width=8000&height=8000&resize=contain",
       width: 120,
-      height: 24
-    },
-    { 
-      name: "Coinbase", 
-      src: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Coinbase_Logo.svg",
-      width: 110,
-      height: 22
+      height: 30
     },
     { 
       name: "Kraken", 
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Kraken_Logo.svg",
-      width: 100,
-      height: 25
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814951913.png?width=8000&height=8000&resize=contain",
+      width: 120,
+      height: 30
     },
     { 
-      name: "Bitfinex", 
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/77/Bitfinex_logo.svg",
-      width: 110,
-      height: 20
+      name: "Mercado Bitcoin", 
+      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Untitled-1766814952109.png?width=8000&height=8000&resize=contain",
+      width: 120,
+      height: 30
     }
   ];
 
@@ -68,13 +67,13 @@ const TrustedBy = () => {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="relative group flex items-center justify-center"
             >
-              <div className="relative opacity-[0.15] grayscale brightness-0 invert transition-all duration-500 group-hover:opacity-40 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0">
+              <div className="relative opacity-[0.25] transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={logo.width}
                   height={logo.height}
-                  className="h-6 w-auto object-contain sm:h-7"
+                  className="h-7 w-auto object-contain sm:h-8"
                 />
               </div>
             </motion.div>
