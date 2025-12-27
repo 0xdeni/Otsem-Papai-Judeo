@@ -41,111 +41,108 @@ const Header = () => {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 safe-top"
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:pt-6"
       >
-        <div className="mx-auto px-4 sm:px-6 pt-3 sm:pt-4">
-    <motion.div
-      layout
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`mx-auto flex items-center justify-between transition-all duration-400 ${
-        scrolled
-          ? "liquid-glass rounded-2xl px-4 sm:px-5 py-2.5 max-w-3xl"
-          : "bg-transparent px-1 py-3 max-w-6xl"
-      }`}
-    >
-      <motion.a 
-        className="flex items-center gap-2 group" 
-        href="/"
-        onClick={handleNavClick}
-        whileTap={{ scale: 0.97 }}
-      >
-        <motion.div 
-          className="relative h-8 w-8 sm:h-9 sm:w-9 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        <motion.div
+          layout
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className={`mx-auto flex items-center justify-between transition-all duration-500 glass-nav rounded-2xl ${
+            scrolled
+              ? "px-5 py-3 max-w-4xl"
+              : "px-6 py-4 max-w-7xl border-white/40"
+          }`}
         >
-            <Zap className="w-5 h-5 text-primary" />
-        </motion.div>
-        <span className="text-base sm:text-lg font-bold tracking-tight flex items-center">
-          <span className="text-primary">Otsem</span>
-          <span className="text-foreground">Pay</span>
-        </span>
-      </motion.a>
-
-      <nav className="hidden items-center gap-0.5 md:flex">
-        {navLinks.map((link) => (
-          <motion.a
-            key={link.href}
-            href={link.href}
+          <motion.a 
+            className="flex items-center gap-2.5 group" 
+            href="/"
             onClick={handleNavClick}
-            className="relative px-3.5 py-2 text-[13px] font-semibold text-foreground/60 transition-colors hover:text-primary rounded-xl"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileTap={{ scale: 0.96 }}
           >
-            {link.label}
+            <motion.div 
+              className="relative h-9 w-9 flex items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/20"
+              whileHover={{ rotate: 5 }}
+            >
+                <Zap className="w-5 h-5 text-white" />
+            </motion.div>
+            <span className="text-xl font-extrabold tracking-tight flex items-center">
+              <span className="text-primary">Otsem</span>
+              <span className="text-foreground">Pay</span>
+            </span>
           </motion.a>
-        ))}
-      </nav>
 
-      <div className="hidden items-center gap-2.5 md:flex">
-        <motion.a
-          href="/login"
-          onClick={handleNavClick}
-          className="px-3.5 py-2 text-[13px] font-semibold text-foreground/60 hover:text-primary transition-colors"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Entrar
-        </motion.a>
-        <motion.a
-          href="/register"
-          onClick={handleButtonClick}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          <button
-            type="button"
-            className="btn-primary rounded-xl px-4 py-2 text-[13px] font-bold flex items-center gap-1.5 shadow-lg shadow-primary/20"
+          <nav className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                onClick={handleNavClick}
+                className="relative px-4 py-2 text-sm font-bold text-foreground/70 transition-all hover:text-primary rounded-xl hover:bg-primary/5"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </nav>
+
+          <div className="hidden items-center gap-4 md:flex">
+            <motion.a
+              href="/login"
+              onClick={handleNavClick}
+              className="text-sm font-bold text-foreground/70 hover:text-primary transition-colors px-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Entrar
+            </motion.a>
+            <motion.a
+              href="/register"
+              onClick={handleButtonClick}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <button
+                type="button"
+                className="btn-premium py-2.5 px-6 rounded-xl text-sm"
+              >
+                <Sparkles className="w-4 h-4" />
+                Criar conta
+              </button>
+            </motion.a>
+          </div>
+
+          <motion.button 
+            className="flex items-center justify-center w-10 h-10 rounded-xl glass-nav md:hidden"
+            onClick={toggleMenu}
+            whileTap={{ scale: 0.92 }}
+            aria-label="Menu"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            Criar conta
-          </button>
-        </motion.a>
-      </div>
-
-      <motion.button 
-        className="flex items-center justify-center w-9 h-9 rounded-xl glass-button md:hidden border-foreground/5 bg-foreground/[0.02]"
-        onClick={toggleMenu}
-        whileTap={{ scale: 0.92 }}
-        aria-label="Menu"
-      >
-        <AnimatePresence mode="wait">
-          {mobileMenuOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X className="w-4.5 h-4.5 text-foreground/70" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu className="w-4.5 h-4.5 text-foreground/70" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
-    </motion.div>
-        </div>
+            <AnimatePresence mode="wait">
+              {mobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-5 h-5 text-foreground" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-5 h-5 text-foreground" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
       </motion.header>
 
       <AnimatePresence>
@@ -155,70 +152,70 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 md:hidden"
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-white/40 backdrop-blur-xl z-40 md:hidden"
               onClick={toggleMenu}
             />
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-x-4 top-[72px] z-50 md:hidden safe-top"
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed inset-x-4 top-24 z-50 md:hidden"
             >
-                <div className="liquid-glass rounded-2xl overflow-hidden shadow-2xl shadow-primary/5">
-                  <nav className="p-2">
+                <div className="liquid-glass rounded-3xl p-4 shadow-2xl overflow-hidden">
+                  <nav className="space-y-1">
                     {navLinks.map((link, index) => (
                       <motion.a
                         key={link.href}
                         href={link.href}
-                        initial={{ opacity: 0, x: -16 }}
+                        initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.06, duration: 0.3 }}
+                        transition={{ delay: index * 0.1, duration: 0.4 }}
                         onClick={() => {
                           haptic.selection();
                           setMobileMenuOpen(false);
                         }}
-                        className="flex items-center justify-between px-4 py-3.5 text-[15px] font-semibold text-foreground/60 hover:text-primary hover:bg-primary/5 rounded-xl transition-all active:scale-[0.98]"
+                        className="flex items-center justify-between px-5 py-4 text-base font-bold text-foreground/70 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"
                       >
                         {link.label}
-                        <ChevronRight className="w-4 h-4 text-foreground/20" />
+                        <ChevronRight className="w-5 h-5 text-foreground/20" />
                       </motion.a>
                     ))}
                     
-                    <div className="h-px bg-foreground/[0.03] my-2 mx-3" />
+                    <div className="h-px bg-foreground/[0.05] my-2 mx-4" />
                     
                     <motion.a
                       href="/login"
-                      initial={{ opacity: 0, x: -16 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2, duration: 0.3 }}
+                      transition={{ delay: 0.3, duration: 0.4 }}
                       onClick={() => {
                         haptic.selection();
                         setMobileMenuOpen(false);
                       }}
-                      className="flex items-center justify-between px-4 py-3.5 text-[15px] font-semibold text-foreground/60 hover:text-primary hover:bg-primary/5 rounded-xl transition-all active:scale-[0.98]"
+                      className="flex items-center justify-between px-5 py-4 text-base font-bold text-foreground/70 hover:text-primary hover:bg-primary/5 rounded-2xl transition-all"
                     >
                       Entrar
-                      <ChevronRight className="w-4 h-4 text-foreground/20" />
+                      <ChevronRight className="w-5 h-5 text-foreground/20" />
                     </motion.a>
                   </nav>
                   
-                  <div className="p-3 pt-0">
+                  <div className="mt-4">
                     <motion.a
                       href="/register"
-                      initial={{ opacity: 0, y: 8 }}
+                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.25, duration: 0.3 }}
+                      transition={{ delay: 0.4, duration: 0.4 }}
                       onClick={() => {
                         haptic.medium();
                         setMobileMenuOpen(false);
                       }}
                       className="block"
                     >
-                      <button className="w-full btn-primary rounded-xl px-4 py-3.5 text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-primary/20">
-                        <Sparkles className="w-4 h-4" />
-                        Criar conta grátis
+                      <button className="w-full btn-premium py-4 rounded-2xl text-base shadow-xl shadow-primary/30">
+                        <Sparkles className="w-5 h-5" />
+                        Criar conta agora
                       </button>
                     </motion.a>
                   </div>
