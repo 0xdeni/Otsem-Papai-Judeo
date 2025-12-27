@@ -65,7 +65,7 @@ const Header = () => {
                     className="w-9 h-9 object-contain relative z-10"
                     whileHover={{ rotate: 8, scale: 1.1 }}
                   />
-                  <span className="text-2xl font-black tracking-tighter flex items-center">
+                    <span className="text-[1.65rem] font-black tracking-tighter flex items-center">
                     <span className="text-primary">Otsem</span>
                     <span className="text-foreground">Pay</span>
                   </span>
