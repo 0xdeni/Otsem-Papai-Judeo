@@ -66,23 +66,25 @@ const HeroSection = () => {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl md:text-8xl xl:text-9xl font-black tracking-tighter text-foreground leading-[0.9] mb-10"
+              className="font-black tracking-tighter text-foreground leading-[0.9] mb-10"
             >
-              Sua ponte <br />
-              <span className="text-primary relative inline-block">
-                líquida
-                <motion.svg 
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 1 }}
-                  className="absolute -bottom-4 left-0 w-full" 
-                  viewBox="0 0 100 10" 
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-primary/30" />
-                </motion.svg>
-              </span> <br />
-              global.
+              <span className="text-4xl md:text-5xl lg:text-6xl text-muted-foreground/60 block mb-2">Sua ponte</span>
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-x-4">
+                <span className="text-7xl md:text-9xl xl:text-[10rem] text-primary relative inline-block">
+                  líquida
+                  <motion.svg 
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 1 }}
+                    className="absolute -bottom-2 md:-bottom-6 left-0 w-full -z-10" 
+                    viewBox="0 0 100 10" 
+                    preserveAspectRatio="none"
+                  >
+                    <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="#EAB308" strokeWidth="4" strokeLinecap="round" className="opacity-40" />
+                  </motion.svg>
+                </span>
+                <span className="text-7xl md:text-9xl xl:text-[10rem] text-foreground">global.</span>
+              </div>
             </motion.h1>
 
             <motion.p 
