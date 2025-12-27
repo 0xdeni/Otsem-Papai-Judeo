@@ -44,7 +44,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative z-10 min-h-[100dvh] flex flex-col">
+    <section className="relative z-10 min-h-[100dvh] flex flex-col pt-12">
       <div className="flex-1 flex flex-col items-center justify-center px-5 pt-20 pb-6 sm:px-6 sm:pt-24">
         <motion.div
           variants={containerVariants}
@@ -52,33 +52,32 @@ const HeroSection = () => {
           animate="visible"
           className="w-full max-w-4xl mx-auto text-center"
         >
-          <motion.div variants={itemVariants} className="mb-5">
-            <div className="section-badge mx-auto">
-              <span className="status-dot text-emerald-500" />
-              <span>Mais de R$ 50M transacionados</span>
+          <motion.div variants={itemVariants} className="mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[11px] uppercase tracking-wider">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              Mais de R$ 50M transacionados
             </div>
           </motion.div>
 
           <motion.h1 
             variants={itemVariants}
-            className="font-hero mx-auto max-w-3xl"
+            className="text-[40px] sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[0.95] mb-6"
           >
-            <span className="text-gradient-black">Revolucionando a forma</span>
-            <br />
-            <span className="text-gradient-shine">de mover dinheiro</span>
+            Mova seu capital <br />
+            <span className="text-primary italic">sem fronteiras</span>
           </motion.h1>
 
           <motion.p 
             variants={itemVariants}
-            className="mx-auto mt-5 max-w-lg text-[15px] sm:text-base text-black/60 font-normal leading-relaxed"
+            className="mx-auto max-w-xl text-base sm:text-lg text-foreground/60 font-medium leading-relaxed"
           >
-            Operações OTC com transparência total. Converta BRL ↔ USDT em minutos 
-            com taxas até 75% menores que o câmbio tradicional.
+            Operações OTC com transparência total. Converta BRL para USDT <br className="hidden sm:block" />
+            em minutos com as melhores taxas do mercado.
           </motion.p>
 
           <motion.div 
             variants={itemVariants}
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
             <motion.a 
               href="/register" 
@@ -87,8 +86,8 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <button className="btn-primary w-full sm:w-auto h-12 sm:h-[52px] px-6 sm:px-7 rounded-xl sm:rounded-2xl text-[14px] sm:text-[15px] font-semibold flex items-center justify-center gap-2">
-                Começar gratuitamente
+              <button className="btn-primary w-full sm:w-auto h-14 px-8 rounded-2xl text-[15px] font-bold flex items-center justify-center gap-2 shadow-xl shadow-primary/25">
+                Começar agora
                 <ArrowRight className="w-4 h-4" />
               </button>
             </motion.a>
@@ -99,7 +98,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <button className="btn-secondary w-full sm:w-auto h-12 sm:h-[52px] px-6 sm:px-7 rounded-xl sm:rounded-2xl text-[14px] sm:text-[15px] font-medium flex items-center justify-center gap-2">
+              <button className="liquid-glass w-full sm:w-auto h-14 px-8 rounded-2xl text-[15px] font-bold flex items-center justify-center gap-2 text-foreground">
                 Ver como funciona
               </button>
             </motion.a>
@@ -107,105 +106,96 @@ const HeroSection = () => {
 
           <motion.div 
             variants={itemVariants}
-            className="mt-10 flex flex-wrap items-center justify-center gap-5 sm:gap-8"
+            className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 opacity-60"
           >
             {[
-              { icon: ShieldCheck, label: "Verificação KYC", color: "text-emerald-500" },
-              { icon: Zap, label: "Liquidação instantânea", color: "text-amber-500" },
-              { icon: Lock, label: "Criptografia E2E", color: "text-purple-600" },
+              { icon: ShieldCheck, label: "Verificação KYC", color: "text-foreground" },
+              { icon: Zap, label: "Liquidação Instantânea", color: "text-foreground" },
+              { icon: Lock, label: "Segurança Bancária", color: "text-foreground" },
             ].map((item, index) => (
-              <div key={index} className="flex items-center gap-2 text-[13px] text-black/40">
-                <item.icon className={`h-4 w-4 ${item.color}`} strokeWidth={2} />
-                <span className="font-medium">{item.label}</span>
+              <div key={index} className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-widest text-foreground">
+                <item.icon className="h-4 w-4 text-primary" strokeWidth={2.5} />
+                <span>{item.label}</span>
               </div>
             ))}
           </motion.div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-10 sm:mt-14 w-full max-w-[320px] sm:max-w-[340px] mx-auto"
+          transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mt-16 sm:mt-20 w-full max-w-[340px] mx-auto"
         >
-          <div className="absolute inset-0 -z-10 scale-110 rounded-[3rem] bg-gradient-to-b from-purple-500/15 via-violet-500/8 to-transparent blur-3xl" />
+          {/* Decorative background glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10">
+            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
+          </div>
           
           <motion.div 
-            className="glass-liquid rounded-[2rem] p-1.5"
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="liquid-glass rounded-[3rem] p-3 shadow-2xl"
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="absolute left-1/2 top-2.5 h-5 w-16 -translate-x-1/2 rounded-full bg-black" />
-            
-            <div className="overflow-hidden rounded-[1.75rem] bg-white border border-black/[0.03]">
-              <div className="p-5 pt-9">
-                <div className="mb-5 flex items-center justify-between">
+            <div className="overflow-hidden rounded-[2.5rem] bg-white border border-black/5 aspect-[9/18.5] relative">
+              {/* iPhone style notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-b-2xl z-20" />
+              
+              <div className="p-6 pt-12 space-y-6">
+                <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-black/30 font-semibold">Saldo total</p>
-                    <p className="text-2xl font-bold tracking-tight text-black mt-0.5">R$ 12.540</p>
+                    <p className="text-[11px] font-bold text-foreground/30 uppercase tracking-widest">Seu saldo</p>
+                    <p className="text-3xl font-bold tracking-tight text-foreground mt-1">R$ 12.540</p>
                   </div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl icon-container">
-                    <Wallet className="h-4.5 w-4.5 text-purple-600" strokeWidth={2} />
-                  </div>
-                </div>
-
-                <div className="mb-5 grid grid-cols-2 gap-2.5">
-                  <div className="glass-card rounded-xl p-3 border-black/[0.05]">
-                    <p className="text-[10px] text-black/30 font-medium uppercase tracking-wider">BRL</p>
-                    <p className="text-lg font-bold text-black mt-0.5">R$ 5.200</p>
-                  </div>
-                  <div className="glass-card rounded-xl p-3 border-black/[0.05]">
-                    <p className="text-[10px] text-black/30 font-medium uppercase tracking-wider">USDT</p>
-                    <p className="text-lg font-bold text-black mt-0.5">$ 1.468</p>
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <Wallet className="h-5 w-5" />
                   </div>
                 </div>
 
-                <div className="mb-5 flex gap-2">
-                  <motion.button 
-                    className="flex-1 btn-primary rounded-xl py-2.5 text-[13px] font-semibold"
-                    whileTap={{ scale: 0.97 }}
-                    onClick={handleButtonClick}
-                  >
-                    Converter
-                  </motion.button>
-                  <motion.button 
-                    className="flex-1 btn-secondary rounded-xl py-2.5 text-[13px] font-semibold"
-                    whileTap={{ scale: 0.97 }}
-                    onClick={() => haptic.light()}
-                  >
-                    Depositar
-                  </motion.button>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="liquid-glass p-4 rounded-2xl">
+                    <p className="text-[10px] font-bold text-foreground/30 uppercase">BRL</p>
+                    <p className="text-lg font-bold text-foreground mt-0.5">R$ 5.200</p>
+                  </div>
+                  <div className="liquid-glass p-4 rounded-2xl">
+                    <p className="text-[10px] font-bold text-foreground/30 uppercase">USDT</p>
+                    <p className="text-lg font-bold text-foreground mt-0.5">$ 1.468</p>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-black/20 mb-2.5">Últimas transações</p>
+                  <p className="text-[10px] font-bold text-foreground/30 uppercase tracking-widest px-1">Atividades</p>
                   
-                  <div className="glass-card rounded-xl p-2.5 flex items-center justify-between border-black/[0.05]">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                        <ArrowDownLeft className="h-3.5 w-3.5 text-emerald-600" strokeWidth={2.5} />
+                  <div className="p-4 rounded-2xl bg-foreground/[0.02] border border-foreground/[0.05] flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                        <ArrowDownLeft className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-[13px] font-semibold text-black">Depósito PIX</p>
-                        <p className="text-[11px] text-black/30">Hoje, 14:32</p>
+                        <p className="text-[13px] font-bold text-foreground">Depósito PIX</p>
+                        <p className="text-[11px] font-medium text-foreground/30">Hoje, 14:32</p>
                       </div>
                     </div>
                     <p className="text-[13px] font-bold text-emerald-600">+R$ 500</p>
                   </div>
 
-                  <div className="glass-card rounded-xl p-2.5 flex items-center justify-between border-black/[0.05]">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-500/10 border border-purple-500/20">
-                        <RefreshCw className="h-3.5 w-3.5 text-purple-600" strokeWidth={2.5} />
+                  <div className="p-4 rounded-2xl bg-foreground/[0.02] border border-foreground/[0.05] flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <RefreshCw className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="text-[13px] font-semibold text-black">BRL → USDT</p>
-                        <p className="text-[11px] text-black/30">Ontem, 18:15</p>
+                        <p className="text-[13px] font-bold text-foreground">BRL → USDT</p>
+                        <p className="text-[11px] font-medium text-foreground/30">Ontem, 18:15</p>
                       </div>
                     </div>
-                    <p className="text-[13px] font-bold text-black">$100</p>
+                    <p className="text-[13px] font-bold text-foreground">$100</p>
                   </div>
                 </div>
+
+                <button className="w-full h-12 btn-primary rounded-xl font-bold text-sm shadow-lg shadow-primary/20">
+                  Transferir agora
+                </button>
               </div>
             </div>
           </motion.div>
