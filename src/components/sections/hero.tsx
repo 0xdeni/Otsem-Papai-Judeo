@@ -73,60 +73,57 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.h1 
-            variants={itemVariants}
-            className="font-black tracking-tightest text-foreground leading-[0.8] mb-14 relative"
-          >
-            <div className="relative mb-6">
-              <span className="text-8xl md:text-9xl lg:text-[10rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
-                Sua ponte
-              </span>
-            </div>
-            
-            <div className="relative group cursor-default inline-block w-full">
-              {/* Artistic Digital Art Wave - Refined and Glowing */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 3, ease: "easeOut" }}
-                className="absolute -inset-x-32 -inset-y-24 -z-10 pointer-events-none"
-              >
-                <svg viewBox="0 0 1000 400" className="w-full h-full opacity-60 blur-3xl filter saturate-200">
-                  <defs>
-                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#EAB308" stopOpacity="0.2" />
-                      <stop offset="50%" stopColor="#EAB308" stopOpacity="1" />
-                      <stop offset="100%" stopColor="#EAB308" stopOpacity="0.2" />
-                    </linearGradient>
-                  </defs>
-                  <motion.path
-                    d="M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
-                    fill="none"
-                    stroke="url(#waveGradient)"
-                    strokeWidth="120"
-                    strokeLinecap="round"
-                    animate={{
-                      d: [
-                        "M 100 200 Q 250 100 400 200 T 700 200 T 900 200",
-                        "M 100 200 Q 250 300 400 200 T 700 100 T 900 200",
-                        "M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
-                      ]
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                </svg>
-              </motion.div>
-
-              <div className="flex flex-col gap-4 relative">
-                <span className="text-[18vw] sm:text-[16vw] lg:text-[12rem] xl:text-[15rem] text-primary leading-none transition-all duration-1000 group-hover:tracking-tightest drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
-                  líquida
-                </span>
-                <span className="text-[18vw] sm:text-[16vw] lg:text-[12rem] xl:text-[15rem] text-foreground leading-none -mt-[0.05em] drop-shadow-2xl">
-                  global.
+            <motion.h1 
+              variants={itemVariants}
+              className="font-black tracking-tightest text-foreground leading-[0.85] mb-14 relative"
+            >
+              <div className="relative mb-6 whitespace-nowrap">
+                <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] text-foreground block drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/70">
+                  Sua ponte
                 </span>
               </div>
-            </div>
-          </motion.h1>
+              
+              <div className="relative group cursor-default inline-block w-full">
+                {/* Artistic Digital Art Wave - Refined and Glowing */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 3, ease: "easeOut" }}
+                  className="absolute -inset-x-32 -inset-y-24 -z-10 pointer-events-none"
+                >
+                  <svg viewBox="0 0 1000 400" className="w-full h-full opacity-60 blur-3xl filter saturate-200">
+                    <defs>
+                      <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#EAB308" stopOpacity="0.2" />
+                        <stop offset="50%" stopColor="#EAB308" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#EAB308" stopOpacity="0.2" />
+                      </linearGradient>
+                    </defs>
+                    <motion.path
+                      d="M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
+                      fill="none"
+                      stroke="url(#waveGradient)"
+                      strokeWidth="120"
+                      strokeLinecap="round"
+                      animate={{
+                        d: [
+                          "M 100 200 Q 250 100 400 200 T 700 200 T 900 200",
+                          "M 100 200 Q 250 300 400 200 T 700 100 T 900 200",
+                          "M 100 200 Q 250 100 400 200 T 700 200 T 900 200"
+                        ]
+                      }}
+                      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  </svg>
+                </motion.div>
+
+                <div className="relative whitespace-nowrap">
+                  <span className="text-[13vw] sm:text-[12vw] lg:text-[9rem] xl:text-[11rem] text-primary leading-none transition-all duration-1000 group-hover:tracking-tightest drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]">
+                    líquida <span className="text-foreground drop-shadow-2xl">global.</span>
+                  </span>
+                </div>
+              </div>
+            </motion.h1>
 
           <motion.p 
             variants={itemVariants}
